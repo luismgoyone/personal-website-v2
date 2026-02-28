@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.w3schools.com)",
+      "WebFetch(domain:ui.shadcn.com)",
+      "WebFetch(domain:brittanychiang.com)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npx create-next-app@latest _setup --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npx create-next-app@latest setup-temp --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npx shadcn@latest init -d)",
+      "Bash(npm install next-themes)",
+      "Bash(npx shadcn@latest add button badge card separator sheet --yes)",
+      "Bash(npm run build)",
+      "WebFetch(domain:luisgoyone.vercel.app)",
+      "Bash(gh api repos/luismgoyone/personal-website/contents --jq '.[].name')",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:www.figma.com)"
+    ]
+  }
+}
