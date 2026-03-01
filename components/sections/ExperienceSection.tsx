@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { experiences } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export function ExperienceSection() {
   return (
     <section id="experience" className="mb-20 scroll-mt-16 lg:scroll-mt-0">
@@ -52,7 +54,7 @@ export function ExperienceSection() {
 
       <div className="mt-8">
         <Button variant="outline" size="sm" asChild>
-          <a href="/Goyone, Luis Michael-resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a href={`${basePath}/Goyone, Luis Michael-resume.pdf`} target="_blank" rel="noopener noreferrer">
             View Full Resume
             <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
           </a>
