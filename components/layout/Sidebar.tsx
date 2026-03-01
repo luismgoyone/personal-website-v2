@@ -73,7 +73,7 @@ export function Sidebar() {
 
         {/* Navigation */}
         <nav className="hidden lg:block" aria-label="Page sections">
-          <ul className="space-y-1">
+          <ul className="list-none space-y-1">
             {navLinks.map((link) => {
               const id = link.href.replace("#", "");
               const isActive = activeSection === id;

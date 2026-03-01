@@ -58,7 +58,7 @@ export function ExperienceSection() {
         ))}
       </div>
 
-      <div className="mt-8 px-5 sm:pl-[9.5rem]">
+      <div className="mt-8 pr-5">
         <Button variant="outline" size="sm" asChild>
           <a href="/Goyone, Luis Michael-resume.pdf" target="_blank" rel="noopener noreferrer">
             View Full Resume
