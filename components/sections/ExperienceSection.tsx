@@ -60,7 +60,7 @@ export function ExperienceSection() {
 
       <div className="mt-8 px-5 sm:pl-[9.5rem]">
         <Button variant="outline" size="sm" asChild>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/Goyone, Luis Michael-resume.pdf" target="_blank" rel="noopener noreferrer">
             View Full Resume
             <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
           </a>

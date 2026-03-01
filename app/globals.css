@@ -134,17 +134,22 @@
   .section-label {
     @apply text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6;
   }
+}
 
-  .spotlight-overlay {
-    pointer-events: none;
-    position: fixed;
-    inset: 0;
-    z-index: 40;
-    background: radial-gradient(
-      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      oklch(0.79 0.21 145 / 15%),
-      transparent 80%
-    );
-    transition: opacity 0.3s;
-  }
+.spotlight-overlay {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    oklch(0.79 0.21 145 / 15%),
+    transparent 80%
+  );
+  transition: opacity 0.3s;
+}
+
+.dark .spotlight-overlay {
+  display: block;
 }

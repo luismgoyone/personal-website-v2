@@ -74,24 +74,24 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: "Personal Website v1",
+    description:
+      "This is the first version of my personal website, showcasing my projects and skills.",
+    tech: ["React 18", "Styled components"],
+    url: "https://luisgoyone.vercel.app/",
+  },
+  {
+    title: "Budget Tracker Web App",
+    description:
+      "A web application for tracking personal budgets, built with React, TypeScript, Tailwind CSS, and Chart.js.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+    url: "https://react-notedt.vercel.app/",
+  },
+    {
     title: "Portfolio Website",
     description:
       "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
-    url: "#",
-  },
-  {
-    title: "Project Two",
-    description:
-      "Coming soon. Update the projects array in lib/data.ts with your real project details.",
-    tech: ["React", "TypeScript"],
-    url: "#",
-  },
-  {
-    title: "Project Three",
-    description:
-      "Coming soon. Update the projects array in lib/data.ts with your real project details.",
-    tech: ["React Native", "JavaScript"],
     url: "#",
   },
 ];
@@ -133,12 +133,12 @@ export const socialLinks: SocialLink[] = [
   },
   {
     platform: "GitHub",
-    href: "#",
+    href: "https://github.com/luismgoyone",
     icon: "Github",
   },
   {
     platform: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/luisgoyone/",
     icon: "Linkedin",
   },
 ];
