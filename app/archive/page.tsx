@@ -82,8 +82,8 @@ export default function ArchivePage() {
                     </span>
                     {/* Tech + link shown inline on small screens */}
                     <div className="flex flex-wrap gap-1.5 mt-2 sm:hidden">
-                      {project.tech.map((t) => (
-                        <Badge key={t} variant="secondary" className="text-xs">
+                      {project.tech.map((t, index) => (
+                        <Badge key={`${project.title}-${t}-${index}`} variant="secondary" className="text-xs">
                           {t}
                         </Badge>
                       ))}
@@ -106,8 +106,8 @@ export default function ArchivePage() {
                   {/* Built with */}
                   <td className="py-4 pr-6 align-top hidden sm:table-cell">
                     <div className="flex flex-wrap gap-1.5">
-                      {project.tech.map((t) => (
-                        <Badge key={t} variant="secondary" className="text-xs font-medium">
+                      {project.tech.map((t, index) => (
+                        <Badge key={`${project.title}-${t}-${index}`} variant="secondary" className="text-xs font-medium">
                           {t}
                         </Badge>
                       ))}
