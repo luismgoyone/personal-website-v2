@@ -1,6 +1,10 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { projects } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
+
+const featuredProjects = projects.filter((p) => p.featured);
 
 export function ProjectsSection() {
   return (
@@ -8,7 +12,7 @@ export function ProjectsSection() {
       <h2 className="section-label">Projects</h2>
 
       <div className="space-y-1">
-        {projects.map((project) => (
+        {featuredProjects.map((project) => (
           <div
             key={project.title}
             className="group relative rounded-xl p-5 transition-all duration-200 hover:bg-muted/40 -mx-5"
@@ -44,6 +48,15 @@ export function ProjectsSection() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-8">
+        <Button variant="outline" size="sm" asChild>
+          <Link href="/archive">
+            View Full Project Archive
+            <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
+          </Link>
+        </Button>
       </div>
     </section>
   );
