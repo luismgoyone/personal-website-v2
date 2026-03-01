@@ -74,11 +74,13 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    title: "Personal Website v1",
+    title: "Personal Website v2",
     description:
-      "This is the first version of my personal website, showcasing my projects and skills.",
-    tech: ["React 18", "Styled components"],
-    url: "https://luisgoyone.vercel.app/",
+      "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
+    url: "#",
+    year: 2026,
+    featured: true,
   },
   {
     title: "Budget Tracker Web App",
@@ -86,13 +88,51 @@ export const projects: Project[] = [
       "A web application for tracking personal budgets, built with React, TypeScript, Tailwind CSS, and Chart.js.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
     url: "https://react-notedt.vercel.app/",
+    year: 2024,
+    featured: true,
   },
-    {
-    title: "Portfolio Website",
+  {
+    title: "Personal Website v1",
     description:
-      "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
-    url: "#",
+      "This is the first version of my personal website, showcasing my projects and skills.",
+    tech: ["React 18", "Styled Components", "Vercel"],
+    url: "https://luisgoyone.vercel.app/",
+    year: 2022,
+    featured: false,
+  },
+  {
+    title: "React Notes App",
+    description:
+      "A simple notes application with create, edit, and delete functionality. Built as a personal learning project to practice React state management.",
+    tech: ["React", "JavaScript", "CSS"],
+    year: 2023,
+    featured: false,
+  },
+  {
+    title: "Movie Search App",
+    description:
+      "A movie search and discovery app powered by the OMDB API. Allows users to search for films and view details, ratings, and cast information.",
+    tech: ["React", "JavaScript", "REST API"],
+    year: 2022,
+    featured: false,
+  },
+  {
+    title: "OT Tracker",
+    description:
+      "A full-stack web application for managing employee overtime records.",
+    tech: ["React", "TypeScript", "MUI", "Vite", "PostgreSQL", "Node.js", "NestJS ", "Docker", "JWT Authentication"],
+    url: "https://github.com/luismgoyone/ot-tracker",
+    year: 2026,
+    featured: true,
+  },
+  {
+    title: "User Management API",
+    description:
+      "This is a Node.js Express backend application that serves as a REST API for user management and posting functionality, built as a coding exercise from Booky.",
+    tech: ["Node.js", "Express.js", "JavaScript", "REST API", "PostgreSQL", "dotenv"],
+    url: "https://github.com/luismgoyone/express-exercise",
+    year: 2024,
+    featured: true,
   },
 ];
 
