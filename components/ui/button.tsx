@@ -48,10 +48,10 @@ function Button({
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
   }) {
-  const Comp = asChild ? Slot.Root : "button"
+  const ButtonComponent = asChild ? Slot.Root : "button"
 
   return (
-    <Comp
+    <ButtonComponent
       data-slot="button"
       data-variant={variant}
       data-size={size}

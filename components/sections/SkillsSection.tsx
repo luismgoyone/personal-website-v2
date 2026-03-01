@@ -31,9 +31,9 @@ export function SkillsSection() {
                 {categoryLabels[category]}
               </p>
               <div className="flex flex-wrap gap-2">
-                {categorySkills.map((skill) => (
+                {categorySkills.map((skill, index) => (
                   <Badge
-                    key={skill.name}
+                    key={`${category}-${skill.name}-${index}`}
                     variant="secondary"
                     className="text-sm font-medium"
                   >

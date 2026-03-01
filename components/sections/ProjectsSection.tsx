@@ -40,8 +40,8 @@ export function ProjectsSection() {
             </p>
 
             <div className="flex flex-wrap gap-1.5">
-              {project.tech.map((t) => (
-                <Badge key={t} variant="secondary" className="text-xs font-medium">
+              {project.tech.map((t, index) => (
+                <Badge key={`${project.title}-${t}-${index}`} variant="secondary" className="text-xs font-medium">
                   {t}
                 </Badge>
               ))}

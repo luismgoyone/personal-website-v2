@@ -41,17 +41,9 @@ export function ExperienceSection() {
                 <p className="text-xs text-muted-foreground mb-3">
                   {exp.companyDescription}
                 </p>
-                <ul className="space-y-1.5">
-                  {exp.description.map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex gap-2 text-sm text-muted-foreground"
-                    >
-                      <span className="shrink-0 mt-1.5 h-1 w-1 rounded-full bg-muted-foreground/50" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm text-muted-foreground">
+                  {exp.description}
+                </p>
               </div>
             </div>
           </div>
