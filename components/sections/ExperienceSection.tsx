@@ -29,7 +29,21 @@ export function ExperienceSection() {
                 <div className="flex items-start justify-between gap-2 mb-1">
                   <h3 className="font-semibold text-foreground text-sm leading-snug">
                     {exp.role}{" "}
-                    <span className="text-foreground/80">· {exp.company}</span>
+                    <span className="text-foreground/80">
+                      ·{" "}
+                      {exp.companyUrl ? (
+                        <a
+                          href={exp.companyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-primary transition-colors"
+                        >
+                          {exp.company}
+                        </a>
+                      ) : (
+                        exp.company
+                      )}
+                    </span>
                   </h3>
                   {exp.current && (
                     <Badge
@@ -46,6 +60,15 @@ export function ExperienceSection() {
                 <p className="text-sm text-muted-foreground">
                   {exp.description}
                 </p>
+                {exp.tech && exp.tech.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {exp.tech.map((t, index) => (
+                      <Badge key={`${exp.company}-${t}-${index}`} variant="secondary" className="text-xs font-medium">
+                        {t}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -54,7 +77,7 @@ export function ExperienceSection() {
 
       <div className="mt-8">
         <Button variant="outline" size="sm" asChild>
-          <a href={`${basePath}/Goyone, Luis Michael-resume.pdf`} target="_blank" rel="noopener noreferrer">
+          <a href={`${basePath}/Luis_Goyone_Resume.pdf`} target="_blank" rel="noopener noreferrer">
             View Full Resume
             <ArrowUpRight className="ml-1.5 h-3.5 w-3.5" />
           </a>

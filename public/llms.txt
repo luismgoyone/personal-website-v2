@@ -1,0 +1,29 @@
+# Luis Michael Goyone
+
+> Software engineer based in Baguio City, Philippines, with 4+ years of experience building web applications in React and TypeScript. I build web products, and the AI agent workflows that ship them.
+
+## Roles
+
+- Software Engineer (Part-time) at Chief (formerly Storytell), https://chief.bot — Jun 2026 to present. Chief is an AI meeting assistant that transcribes meetings, summarizes them, and acts on them across tools like Notion, Slack, GitHub, and Linear. I designed and run my own Claude Code agent pipeline (planner, coder, tester, QA, and reviewer subagents) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend. Every UI change is verified in a real browser with Playwright and recorded as video. Agents draft the code; I own scope, review, and what ships. In my first three months I merged 149 pull requests, 25% of the engineering team's human-authored merges.
+- Software Engineer at 24metrics — Mar 2025 to present. Ad fraud protection platform; I turn complex Figma designs into responsive, production-ready interfaces.
+- Software Engineer at Booky — Aug 2022 to Feb 2025. Deals and discoveries platform serving millions of users across the Philippines; React and TypeScript features across multiple products.
+- Software Engineer at PouchNation — Jan 2022 to May 2022. Cashless and guest management platform for venues and events.
+
+## Skills
+
+- AI engineering: Claude Code (subagents, skills, slash commands), multi-agent workflows, MCP integrations, prompt engineering, AI-assisted code review
+- Languages: TypeScript, JavaScript, Go, HTML & CSS, Java, Python, SQL
+- Frameworks and libraries: React, Next.js, SolidJS, React Native, Node.js, Express.js, NestJS, Tailwind CSS, Material UI, Shadcn/ui, Vite
+- Tools: Git, Playwright, PostgreSQL, Docker, Figma
+
+## Education
+
+- Bachelor of Science in Information Technology, Cum Laude — Saint Louis University (2018–2022)
+
+## Links
+
+- Website: https://luismgoyone.github.io/personal-website-v2/
+- Resume (PDF): https://luismgoyone.github.io/personal-website-v2/Luis_Goyone_Resume.pdf
+- GitHub: https://github.com/luismgoyone
+- LinkedIn: https://www.linkedin.com/in/luisgoyone/
+- Email: luismichaelgoyone@gmail.com

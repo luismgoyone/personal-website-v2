@@ -27,11 +27,6 @@ export function ContactSection() {
             <ArrowUpRight className="ml-1.5 h-4 w-4" />
           </a>
         </Button>
-        <Button variant="outline" asChild>
-          <a href={`tel:${personalInfo.phone.replace(/\s/g, "")}`}>
-            {personalInfo.phone}
-          </a>
-        </Button>
       </div>
     </section>
   );

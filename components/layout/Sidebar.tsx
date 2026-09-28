@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { navLinks, personalInfo, socialLinks } from "@/lib/data";
@@ -10,7 +10,6 @@ import type { SocialLink } from "@/types/portfolio";
 
 const iconMap = {
   Mail,
-  Phone,
   Github,
   Linkedin,
 } as const;
@@ -22,7 +21,7 @@ function SocialButton({ link }: { link: SocialLink }) {
     <Button variant="ghost" size="icon" asChild>
       <a
         href={link.href}
-        target={link.href.startsWith("mailto") || link.href.startsWith("tel") ? "_self" : "_blank"}
+        target={link.href.startsWith("mailto") ? "_self" : "_blank"}
         rel="noopener noreferrer"
         aria-label={link.platform}
       >

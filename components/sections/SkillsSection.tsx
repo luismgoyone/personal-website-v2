@@ -3,6 +3,7 @@ import { skills } from "@/lib/data";
 import type { Skill } from "@/types/portfolio";
 
 const categoryLabels: Record<Skill["category"], string> = {
+  ai: "AI Engineering",
   language: "Languages",
   framework: "Frameworks & Libraries",
   tool: "Tools",
@@ -10,6 +11,7 @@ const categoryLabels: Record<Skill["category"], string> = {
 };
 
 const categories: Skill["category"][] = [
+  "ai",
   "language",
   "framework",
   "tool",

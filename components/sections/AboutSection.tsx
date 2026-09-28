@@ -29,7 +29,10 @@ export function AboutSection() {
             <p className="font-semibold text-foreground text-sm">
               {education.school}
             </p>
-            <p className="text-sm text-muted-foreground">{education.degree}</p>
+            <p className="text-sm text-muted-foreground">
+              {education.degree}
+              {education.honors && `, ${education.honors}`}
+            </p>
             <p className="text-xs text-muted-foreground/70 mt-1">
               {education.period}
             </p>
