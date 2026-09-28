@@ -11,12 +11,10 @@ import type {
 export const personalInfo: PersonalInfo = {
   name: "Luis Michael Goyone",
   title: "Software Engineer",
-  tagline:
-    "I build accessible, pixel-perfect digital experiences for the web.",
+  tagline: "I build web products, and the AI agent workflows that ship them.",
   email: "luismichaelgoyone@gmail.com",
-  phone: "(+63) 908 946 8874",
   location: "Baguio City, Philippines",
-  bio: "I'm a software engineer with 3+ years of experience designing and building scalable web applications. I specialize in React and TypeScript, and I care deeply about clean code, great user experiences, and collaborative development.\n\nCurrently at 24metrics, where I help protect advertising budgets by converting complex Figma designs into responsive, production-ready interfaces. Previously at Booky, where I built features used by millions of users across the Philippines.",
+  bio: "I'm a software engineer with 4+ years of experience designing and building scalable web applications. I specialize in React and TypeScript, and I care deeply about clean code, great user experiences, and collaborative development.\n\nCurrently at 24metrics, where I help protect advertising budgets by converting complex Figma designs into responsive, production-ready interfaces. Part-time, I'm a software engineer at Chief (formerly Storytell), where I run my own Claude Code agent pipeline that takes Linear tickets to review-ready pull requests across web, desktop, and Go backend code. Previously at Booky, where I built features used by millions of users across the Philippines.",
 };
 
 export const navLinks: NavLink[] = [
@@ -28,6 +26,17 @@ export const navLinks: NavLink[] = [
 ];
 
 export const experiences: Experience[] = [
+  {
+    company: "Chief (formerly Storytell)",
+    companyUrl: "https://chief.bot",
+    companyDescription:
+      "AI meeting assistant that transcribes meetings, summarizes them, and acts on them across tools like Notion, Slack, GitHub, and Linear.",
+    role: "Software Engineer (Part-time)",
+    period: "Jun 2026 — Present",
+    current: true,
+    description: "I designed and run my own Claude Code agent pipeline (planner, coder, tester, QA, and reviewer subagents) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend. Every UI change is verified in a real browser with Playwright and recorded as video. Agents draft the code; I own scope, review, and what ships. In my first three months I merged 149 pull requests, 25% of the engineering team's human-authored merges.",
+    tech: ["Claude Code", "TypeScript", "SolidJS", "Go", "PostgreSQL", "Playwright"],
+  },
   {
     company: "24metrics",
     companyDescription:
@@ -61,7 +70,7 @@ export const projects: Project[] = [
     description:
       "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
-    url: "#",
+    url: "https://github.com/luismgoyone/personal-website-v2",
     year: 2026,
     featured: true,
   },
@@ -103,7 +112,7 @@ export const projects: Project[] = [
     title: "OT Tracker",
     description:
       "A full-stack web application for managing employee overtime records.",
-    tech: ["React", "TypeScript", "MUI", "Vite", "PostgreSQL", "Node.js", "NestJS ", "Docker", "JWT Authentication"],
+    tech: ["React", "TypeScript", "MUI", "Vite", "PostgreSQL", "Node.js", "NestJS", "Docker", "JWT Authentication"],
     url: "https://github.com/luismgoyone/ot-tracker",
     year: 2026,
     featured: true,
@@ -120,30 +129,36 @@ export const projects: Project[] = [
 ];
 
 export const skills: Skill[] = [
+  { name: "Claude Code (subagents, skills, slash commands)", category: "ai" },
+  { name: "Multi-agent workflows", category: "ai" },
+  { name: "MCP integrations", category: "ai" },
+  { name: "Prompt engineering", category: "ai" },
+  { name: "AI-assisted code review", category: "ai" },
   { name: "JavaScript", category: "language" },
   { name: "TypeScript", category: "language" },
+  { name: "Go", category: "language" },
   { name: "HTML & CSS", category: "language" },
   { name: "Java", category: "language" },
   { name: "Python", category: "language" },
   { name: "SQL", category: "language" },
-  { name: "NestJS", category: "framework" },
-  { name: "MUI", category: "framework" },
-  { name: "Tailwind CSS", category: "framework" },
-  { name: "Vite", category: "framework" },
-  { name: "Shadcn/ui", category: "framework" },
   { name: "React", category: "framework" },
   { name: "Next.js", category: "framework" },
+  { name: "SolidJS", category: "framework" },
   { name: "React Native", category: "framework" },
+  { name: "Node.js", category: "framework" },
+  { name: "Express.js", category: "framework" },
+  { name: "NestJS", category: "framework" },
   { name: "Tailwind CSS", category: "framework" },
   { name: "Material UI", category: "framework" },
-    { name: "Node.js", category: "framework" },
-  { name: "Express.js", category: "framework" },
+  { name: "Shadcn/ui", category: "framework" },
+  { name: "Vite", category: "framework" },
   { name: "Git", category: "tool" },
-  { name: "WordPress", category: "tool" },
-  { name: "Figma", category: "tool" },
-    { name: "Docker", category: "tool" },
-  { name: "JWT Authentication", category: "tool" },
+  { name: "Playwright", category: "tool" },
   { name: "PostgreSQL", category: "tool" },
+  { name: "Docker", category: "tool" },
+  { name: "JWT Authentication", category: "tool" },
+  { name: "Figma", category: "tool" },
+  { name: "WordPress", category: "tool" },
   { name: "Agile / Scrum", category: "methodology" },
   { name: "Code Review", category: "methodology" },
   { name: "Front-end Development", category: "methodology" },
@@ -153,6 +168,7 @@ export const education: Education = {
   school: "Saint Louis University",
   degree: "Bachelor of Science in Information Technology",
   period: "Aug 2018 — Jun 2022",
+  honors: "Cum Laude",
 };
 
 export const socialLinks: SocialLink[] = [
@@ -160,11 +176,6 @@ export const socialLinks: SocialLink[] = [
     platform: "Email",
     href: "mailto:luismichaelgoyone@gmail.com",
     icon: "Mail",
-  },
-  {
-    platform: "Phone",
-    href: "tel:+639089468874",
-    icon: "Phone",
   },
   {
     platform: "GitHub",

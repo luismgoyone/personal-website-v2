@@ -4,9 +4,12 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { projects, personalInfo } from "@/lib/data";
 import { SpotlightEffect } from "@/components/layout/SpotlightEffect";
+import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: `All Projects — ${personalInfo.name}`,
+  alternates: { canonical: `${siteUrl}/archive/` },
+  openGraph: { url: `${siteUrl}/archive/`, images: [`${siteUrl}/og-image.png`] },
 };
 
 function getHostname(url: string): string | null {

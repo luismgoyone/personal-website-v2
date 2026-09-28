@@ -10,6 +10,8 @@ export interface Experience {
   period: string;
   description: string;
   current?: boolean;
+  companyUrl?: string;
+  tech?: string[];
 }
 
 export interface Project {
@@ -23,19 +25,20 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  category: "language" | "framework" | "tool" | "methodology";
+  category: "ai" | "language" | "framework" | "tool" | "methodology";
 }
 
 export interface Education {
   school: string;
   degree: string;
   period: string;
+  honors?: string;
 }
 
 export interface SocialLink {
   platform: string;
   href: string;
-  icon: "Mail" | "Phone" | "Github" | "Linkedin" | "ExternalLink";
+  icon: "Mail" | "Github" | "Linkedin" | "ExternalLink";
 }
 
 export interface PersonalInfo {
@@ -43,7 +46,6 @@ export interface PersonalInfo {
   title: string;
   tagline: string;
   email: string;
-  phone: string;
   location: string;
   bio: string;
 }
