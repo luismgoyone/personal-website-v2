@@ -142,14 +142,23 @@
   position: fixed;
   inset: 0;
   z-index: 40;
+  overflow: hidden;
+}
+
+/* The glow is painted once and moved with a transform, so mouse moves never
+   repaint it (repainting a fixed full-screen gradient leaves hard-edged seams). */
+.spotlight-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1200px;
+  height: 1200px;
   background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    circle closest-side,
     oklch(0.79 0.21 145 / 15%),
     transparent 80%
   );
-  transition: opacity 0.3s;
-  /* Own compositor layer so hover repaints elsewhere don't leave stale glow with hard edges */
-  transform: translateZ(0);
+  transform: translate3d(calc(50vw - 600px), calc(50vh - 600px), 0);
   will-change: transform;
 }
 
