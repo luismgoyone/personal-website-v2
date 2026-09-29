@@ -1,8 +1,8 @@
 // Syncs public GitHub repos into lib/github-projects.json for the projects archive.
 //
-// - Skips forks, archived/private repos, this site's repo, repos tagged
-//   `hide-from-portfolio`, and repos already hand-listed in lib/data.ts
-//   (matched by repo URL or homepage URL).
+// - Opt-in: only public repos tagged with the `portfolio` topic are synced.
+//   Forks, archived repos, this site's repo, and repos already hand-listed in
+//   lib/data.ts (matched by repo URL or homepage URL) are skipped.
 // - Keeps existing entries as-is so manual edits to the JSON survive re-runs;
 //   drops entries whose repo no longer qualifies.
 // - Writes a Markdown summary to $SUMMARY_PATH (used as the PR body).
@@ -13,7 +13,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const OWNER = process.env.GITHUB_OWNER ?? "luismgoyone";
 const SITE_REPO = process.env.SITE_REPO ?? "personal-website-v2";
-const HIDE_TOPIC = "hide-from-portfolio";
+const PORTFOLIO_TOPIC = "portfolio";
 const DATA_TS = "lib/data.ts";
 const OUT_JSON = "lib/github-projects.json";
 
@@ -64,7 +64,7 @@ function prettifyName(name) {
 }
 
 async function techFor(repo) {
-  const topics = (repo.topics ?? []).filter((t) => t !== HIDE_TOPIC);
+  const topics = (repo.topics ?? []).filter((t) => t !== PORTFOLIO_TOPIC);
   if (topics.length > 0) return topics;
   const languages = await gh(`/repos/${OWNER}/${repo.name}/languages`);
   const total = Object.values(languages).reduce((a, b) => a + b, 0);
@@ -96,7 +96,7 @@ const qualifying = repos.filter(
     !r.private &&
     r.name !== SITE_REPO &&
     r.name.toLowerCase() !== OWNER.toLowerCase() &&
-    !(r.topics ?? []).includes(HIDE_TOPIC) &&
+    (r.topics ?? []).includes(PORTFOLIO_TOPIC) &&
     !manualUrls.has(normalizeUrl(r.html_url)) &&
     !(r.homepage && manualUrls.has(normalizeUrl(r.homepage)))
 );
@@ -143,12 +143,12 @@ if (added.length) {
   lines.push("");
 }
 if (removed.length) {
-  lines.push("### Removed (hidden, archived, forked, deleted, or now hand-listed)", "");
+  lines.push("### Removed (untagged, archived, deleted, or now hand-listed)", "");
   for (const p of removed) lines.push(`- **${p.title}**: ${p.repo}`);
   lines.push("");
 }
 lines.push(
-  `To keep a repo off the site, add the \`${HIDE_TOPIC}\` topic to it on GitHub. You can also edit titles, tech, or links in \`${OUT_JSON}\` on this branch before merging.`
+  `Repos appear here when you add the \`${PORTFOLIO_TOPIC}\` topic on GitHub; remove the topic to take one off the site. You can also edit titles, tech, or links in \`${OUT_JSON}\` on this branch before merging.`
 );
 const summary = lines.join("\n");
 if (process.env.SUMMARY_PATH) writeFileSync(process.env.SUMMARY_PATH, summary);

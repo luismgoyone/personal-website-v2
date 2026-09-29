@@ -2,7 +2,7 @@ name: Sync GitHub projects
 
 on:
   schedule:
-    - cron: "0 0 * * *" # daily, 08:00 PHT
+    - cron: "17 * * * *" # hourly
   workflow_dispatch:
 
 permissions:

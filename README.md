@@ -13,7 +13,7 @@ Next.js 16 (App Router, static export), TypeScript, Tailwind CSS v4, and Shadcn/
 - Almost all content (bio, experience, projects, skills, links) lives in `lib/data.ts`.
 - Site metadata, Open Graph tags, and JSON-LD are in `app/layout.tsx`; the canonical URL is in `lib/site.ts`.
 - `app/robots.ts` and `app/sitemap.ts` generate `robots.txt` and `sitemap.xml` at build time.
-- Public GitHub repos are synced into `lib/github-projects.json` (archive only) by the daily **Sync GitHub projects** workflow, which opens a PR with any new repos. Add the `hide-from-portfolio` topic to a repo to keep it off the site. Run it locally with `GITHUB_TOKEN=$(gh auth token) node scripts/sync-github-projects.mjs`.
+- Public GitHub repos tagged with the `portfolio` topic are synced into `lib/github-projects.json` (archive only) by the hourly **Sync GitHub projects** workflow, which opens a PR with any changes (or run it now with `gh workflow run sync-projects.yml`). Remove the topic to take a repo off the site. Run it locally with `GITHUB_TOKEN=$(gh auth token) node scripts/sync-github-projects.mjs`.
 - `public/` holds the resume PDF (`Luis_Goyone_Resume.pdf`), the Open Graph image, and `llms.txt`.
 
 ## Development
