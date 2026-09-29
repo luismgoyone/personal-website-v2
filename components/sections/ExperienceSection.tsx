@@ -57,9 +57,11 @@ export function ExperienceSection() {
                 <p className="text-xs text-muted-foreground mb-3">
                   {exp.companyDescription}
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  {exp.description}
-                </p>
+                <ul className="list-disc space-y-1.5 pl-4 text-sm text-muted-foreground marker:text-muted-foreground/50">
+                  {exp.description.map((item, index) => (
+                    <li key={`${exp.company}-desc-${index}`}>{item}</li>
+                  ))}
+                </ul>
                 {exp.tech && exp.tech.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 mt-3">
                     {exp.tech.map((t, index) => (

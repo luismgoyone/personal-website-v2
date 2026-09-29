@@ -34,7 +34,12 @@ export const experiences: Experience[] = [
     role: "Software Engineer (Part-time)",
     period: "Jun 2026 — Present",
     current: true,
-    description: "I designed and run my own Claude Code agent pipeline (planner, coder, tester, QA, and reviewer subagents) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend. Every UI change is verified in a real browser with Playwright and recorded as video. Agents draft the code; I own scope, review, and what ships. In my first three months I merged 149 pull requests, 25% of the engineering team's human-authored merges.",
+    description: [
+      "Merged 149 pull requests in my first three months, 25% of the engineering team's human-authored merges.",
+      "Designed and run my own Claude Code agent pipeline (planner, coder, tester, QA, and reviewer subagents) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend.",
+      "Every UI change is verified in a real browser with Playwright and recorded as video.",
+      "Agents draft the code; I own scope, review, and what ships.",
+    ],
     tech: ["Claude Code", "TypeScript", "SolidJS", "Go", "PostgreSQL", "Playwright"],
   },
   {
@@ -44,7 +49,12 @@ export const experiences: Experience[] = [
     role: "Software Engineer",
     period: "Mar 2025 — Present",
     current: true,
-    description: "I bridge the gap between design and production by turning complex Figma layouts into high-performance web interfaces. Beyond front-end development and leading our latest site launch, I focus on workflow efficiency, proactively coordinating with backend teams on API specs and streamlining ticket assessments. I integrate AI into my research and coding process to move faster, though I personally refactor and vet every suggestion to ensure the output is optimized, secure, and fits our specific team standards.",
+    description: [
+      "I bridge the gap between design and production by turning complex Figma layouts into high-performance web interfaces.",
+      "Beyond front-end development and leading our latest site launch, I focus on workflow efficiency, proactively coordinating with backend teams on API specs and streamlining ticket assessments.",
+      "I integrate AI into my research and coding process to move faster, though I personally refactor and vet every suggestion to ensure the output is optimized, secure, and fits our specific team standards.",
+    ],
+    tech: ["React", "TypeScript", "Figma"],
   },
   {
     company: "Booky",
@@ -52,7 +62,12 @@ export const experiences: Experience[] = [
       "Deals and discoveries platform connecting consumers with food establishments across the Philippines.",
     role: "Software Engineer",
     period: "Aug 2022 — Feb 2025",
-    description: "I created and delivered scalable React and TypeScript solutions for a platform serving millions, directly boosting user engagement and merchant sales. My work spans across multiple products where I maintain high-performance standards and cross-product consistency. Beyond feature development, I’ve led major initiatives by centralizing cross-team communication and enforcing rigorous code reviews to ensure our deployments remain stable, secure, and optimized for scale.",
+    description: [
+      "I created and delivered scalable React and TypeScript solutions for a platform serving millions, directly boosting user engagement and merchant sales.",
+      "My work spans across multiple products where I maintain high-performance standards and cross-product consistency.",
+      "Beyond feature development, I’ve led major initiatives by centralizing cross-team communication and enforcing rigorous code reviews to ensure our deployments remain stable, secure, and optimized for scale.",
+    ],
+    tech: ["React", "React Native", "TypeScript", "Material UI"],
   },
   {
     company: "PouchNation",
@@ -60,7 +75,13 @@ export const experiences: Experience[] = [
       "All-in-one cashless and guest management solution for venues and events using NFC wearable technology.",
     role: "Software Engineer",
     period: "Jan 2022 — May 2022",
-    description: "I contributed to the successful release of PouchNation's Mobile Ordering Web Application, enabling venues to streamline operations. I improved and expanded features in PouchNation's Venue Dashboard Application, enhancing analytics and venue management capabilities. I collaborated closely with cross-functional teams to ensure alignment with business goals and deliver solutions on time. I participated in code reviews and contributed to improving development processes, ensuring high code quality.",
+    description: [
+      "I contributed to the successful release of PouchNation's Mobile Ordering Web Application, enabling venues to streamline operations.",
+      "I improved and expanded features in PouchNation's Venue Dashboard Application, enhancing analytics and venue management capabilities.",
+      "I collaborated closely with cross-functional teams to ensure alignment with business goals and deliver solutions on time.",
+      "I participated in code reviews and contributed to improving development processes, ensuring high code quality.",
+    ],
+    tech: ["React", "REST APIs"],
   },
 ];
 
