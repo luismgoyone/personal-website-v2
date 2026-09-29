@@ -66,6 +66,15 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: "Northmark",
+    description:
+      "A read-only decision dashboard for an XAUUSD (gold) M5 trading strategy. It watches the live market, runs a breakout-and-retest checklist as a sequence of pure, testable gates, and shows at a glance whether to wait or that a setup is live, with the entry, stop, targets, and lot size it implies. It never places orders.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vitest", "Vercel"],
+    url: "https://northmark-one.vercel.app/",
+    year: 2026,
+    featured: true,
+  },
+  {
     title: "Personal Website v2",
     description:
       "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
