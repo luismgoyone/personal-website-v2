@@ -148,6 +148,9 @@
     transparent 80%
   );
   transition: opacity 0.3s;
+  /* Own compositor layer so hover repaints elsewhere don't leave stale glow with hard edges */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .dark .spotlight-overlay {
