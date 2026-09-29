@@ -17,6 +17,7 @@ export interface Experience {
 export interface Project {
   title: string;
   description: string;
+  summary?: string; // short one-liner for the archive table; falls back to description
   tech: string[];
   url?: string;
   repo?: string;

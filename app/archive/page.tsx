@@ -54,6 +54,9 @@ export default function ArchivePage() {
               <th className="text-xs font-semibold uppercase tracking-widest text-muted-foreground pb-4 pr-6">
                 Project
               </th>
+              <th className="text-xs font-semibold uppercase tracking-widest text-muted-foreground pb-4 pr-6 hidden md:table-cell md:w-[32%]">
+                Description
+              </th>
               <th className="text-xs font-semibold uppercase tracking-widest text-muted-foreground pb-4 pr-6 hidden sm:table-cell">
                 Built with
               </th>
@@ -83,7 +86,12 @@ export default function ArchivePage() {
                     <span className="font-medium text-sm text-foreground group-hover:text-primary transition-colors">
                       {project.title}
                     </span>
-                    {/* Tech + link shown inline on small screens */}
+                    {/* Description, tech + link shown inline on small screens */}
+                    {(project.summary ?? project.description) && (
+                      <p className="mt-1 text-xs text-muted-foreground leading-relaxed md:hidden">
+                        {project.summary ?? project.description}
+                      </p>
+                    )}
                     <div className="flex flex-wrap gap-1.5 mt-2 sm:hidden">
                       {project.tech.map((t, index) => (
                         <Badge key={`${project.title}-${t}-${index}`} variant="secondary" className="text-xs">
@@ -104,6 +112,13 @@ export default function ArchivePage() {
                         </a>
                       </div>
                     )}
+                  </td>
+
+                  {/* Description */}
+                  <td className="py-4 pr-6 align-top hidden md:table-cell">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.summary ?? project.description}
+                    </p>
                   </td>
 
                   {/* Built with */}
