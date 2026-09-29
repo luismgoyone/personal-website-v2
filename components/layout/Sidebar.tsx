@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
@@ -33,25 +33,67 @@ function SocialButton({ link }: { link: SocialLink }) {
 
 export function Sidebar() {
   const [activeSection, setActiveSection] = useState<string>("");
+  // While a nav click's smooth scroll is in flight, keep the clicked section
+  // active instead of recomputing it (sections near the page end can't reach
+  // the threshold, so recomputing would highlight the wrong one).
+  const clickLock = useRef<{ timer: number } | null>(null);
+
+  const releaseLockWhenIdle = () => {
+    if (!clickLock.current) return;
+    window.clearTimeout(clickLock.current.timer);
+    clickLock.current.timer = window.setTimeout(() => {
+      clickLock.current = null;
+    }, 150);
+  };
+
+  const handleNavClick = (id: string) => {
+    setActiveSection(id);
+    clickLock.current = { timer: 0 };
+    releaseLockWhenIdle();
+  };
 
   useEffect(() => {
-    const sections = navLinks.map((l) => l.href.replace("#", ""));
-    const observers: IntersectionObserver[] = [];
+    const sections = navLinks
+      .map((l) => document.getElementById(l.href.replace("#", "")))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
 
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { rootMargin: "-40% 0px -55% 0px" }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      // Short trailing sections (e.g. Contact) can never scroll up to the
+      // threshold, so the bottom of the page always activates the last one.
+      if (atBottom) {
+        setActiveSection(sections[sections.length - 1].id);
+        return;
+      }
+      const threshold = window.innerHeight * 0.4;
+      let current = "";
+      for (const el of sections) {
+        if (el.getBoundingClientRect().top <= threshold) current = el.id;
+      }
+      setActiveSection(current);
+    };
+    const onScroll = () => {
+      if (clickLock.current) {
+        releaseLockWhenIdle();
+        return;
+      }
+      if (!frame) frame = requestAnimationFrame(update);
+    };
 
-    return () => observers.forEach((o) => o.disconnect());
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+      if (clickLock.current) window.clearTimeout(clickLock.current.timer);
+    };
   }, []);
 
   return (
@@ -80,6 +122,7 @@ export function Sidebar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    onClick={() => handleNavClick(id)}
                     className={`group flex items-center gap-4 py-2 text-sm transition-all duration-200 ${
                       isActive
                         ? "text-foreground"
