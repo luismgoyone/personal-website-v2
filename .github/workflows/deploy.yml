@@ -1,8 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
+  push:
+    branches: [main]
   release:
     types: [published]
+  workflow_dispatch:
 
 # Allow only one concurrent deployment
 concurrency:

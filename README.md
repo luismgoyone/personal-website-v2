@@ -13,6 +13,7 @@ Next.js 16 (App Router, static export), TypeScript, Tailwind CSS v4, and Shadcn/
 - Almost all content (bio, experience, projects, skills, links) lives in `lib/data.ts`.
 - Site metadata, Open Graph tags, and JSON-LD are in `app/layout.tsx`; the canonical URL is in `lib/site.ts`.
 - `app/robots.ts` and `app/sitemap.ts` generate `robots.txt` and `sitemap.xml` at build time.
+- Public GitHub repos are synced into `lib/github-projects.json` (archive only) by the daily **Sync GitHub projects** workflow, which opens a PR with any new repos. Add the `hide-from-portfolio` topic to a repo to keep it off the site. Run it locally with `GITHUB_TOKEN=$(gh auth token) node scripts/sync-github-projects.mjs`.
 - `public/` holds the resume PDF (`Luis_Goyone_Resume.pdf`), the Open Graph image, and `llms.txt`.
 
 ## Development
@@ -26,4 +27,4 @@ NEXT_PUBLIC_BASE_PATH=/personal-website-v2 npm run build   # static site in ./ou
 
 ## Deployment
 
-Publishing a GitHub release triggers `.github/workflows/deploy.yml`, which builds with the `/personal-website-v2` base path and deploys `./out` to GitHub Pages.
+Every push to `main` (and every published release) triggers `.github/workflows/deploy.yml`, which builds with the `/personal-website-v2` base path and deploys `./out` to GitHub Pages.
