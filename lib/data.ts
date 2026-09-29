@@ -91,6 +91,7 @@ const manualProjects: Project[] = [
     title: "Northmark",
     description:
       "A read-only decision dashboard for an XAUUSD (gold) M5 trading strategy. It watches the live market, runs a breakout-and-retest checklist as a sequence of pure, testable gates, and shows at a glance whether to wait or that a setup is live, with the entry, stop, targets, and lot size it implies. It never places orders.",
+    summary: "Read-only decision dashboard for an XAUUSD (gold) M5 trading strategy. Never places orders.",
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vitest", "Vercel"],
     url: "https://northmark-one.vercel.app/",
     year: 2026,
@@ -100,15 +101,17 @@ const manualProjects: Project[] = [
     title: "Personal Website v2",
     description:
       "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
+    summary: "This portfolio, built with Next.js 16, Tailwind CSS v4, and Shadcn/ui.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
     url: "https://github.com/luismgoyone/personal-website-v2",
     year: 2026,
     featured: true,
   },
   {
-    title: "Budget Tracker Web App",
+    title: "Notedt",
     description:
       "A web application for tracking personal budgets, built with React, TypeScript, Tailwind CSS, and Chart.js.",
+    summary: "Web app for tracking personal budgets, with Chart.js visualizations.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
     url: "https://react-notedt.vercel.app/",
     year: 2024,
@@ -118,24 +121,9 @@ const manualProjects: Project[] = [
     title: "Personal Website v1",
     description:
       "This is the first version of my personal website, showcasing my projects and skills.",
+    summary: "The first version of my personal website.",
     tech: ["React 18", "Styled Components", "Vercel"],
     url: "https://luisgoyone.vercel.app/",
-    year: 2022,
-    featured: false,
-  },
-  {
-    title: "React Notes App",
-    description:
-      "A simple notes application with create, edit, and delete functionality. Built as a personal learning project to practice React state management.",
-    tech: ["React", "JavaScript", "CSS"],
-    year: 2023,
-    featured: false,
-  },
-  {
-    title: "Movie Search App",
-    description:
-      "A movie search and discovery app powered by the OMDB API. Allows users to search for films and view details, ratings, and cast information.",
-    tech: ["React", "JavaScript", "REST API"],
     year: 2022,
     featured: false,
   },
@@ -143,8 +131,9 @@ const manualProjects: Project[] = [
     title: "OT Tracker",
     description:
       "A full-stack web application for managing employee overtime records.",
+    summary: "Full-stack app for managing employee overtime records.",
     tech: ["React", "TypeScript", "MUI", "Vite", "PostgreSQL", "Node.js", "NestJS", "Docker", "JWT Authentication"],
-    url: "https://github.com/luismgoyone/ot-tracker",
+    url: "https://ot-management.netlify.app/",
     year: 2026,
     featured: true,
   },
@@ -152,6 +141,7 @@ const manualProjects: Project[] = [
     title: "User Management API",
     description:
       "This is a Node.js Express backend application that serves as a REST API for user management and posting functionality, built as a coding exercise from Booky.",
+    summary: "Express REST API for user management and posts, built as a coding exercise from Booky.",
     tech: ["Node.js", "Express.js", "JavaScript", "REST API", "PostgreSQL", "dotenv"],
     url: "https://github.com/luismgoyone/express-exercise",
     year: 2024,
