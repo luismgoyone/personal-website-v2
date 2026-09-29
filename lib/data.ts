@@ -7,6 +7,7 @@ import type {
   Skill,
   SocialLink,
 } from "@/types/portfolio";
+import githubProjects from "./github-projects.json";
 
 export const personalInfo: PersonalInfo = {
   name: "Luis Michael Goyone",
@@ -85,7 +86,7 @@ export const experiences: Experience[] = [
   },
 ];
 
-export const projects: Project[] = [
+const manualProjects: Project[] = [
   {
     title: "Northmark",
     description:
@@ -156,6 +157,12 @@ export const projects: Project[] = [
     year: 2024,
     featured: true,
   },
+];
+
+// Auto-synced from GitHub by .github/workflows/sync-projects.yml (archive only).
+export const projects: Project[] = [
+  ...manualProjects,
+  ...(githubProjects as Project[]),
 ];
 
 export const skills: Skill[] = [

@@ -19,6 +19,7 @@ export interface Project {
   description: string;
   tech: string[];
   url?: string;
+  repo?: string;
   year?: number;
   featured?: boolean;
 }
