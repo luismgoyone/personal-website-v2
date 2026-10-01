@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "title": "Outpost",
+    "description": "Personal engineering control center: PRs, CI, deployments and releases across all your GitHub repos in one dense dashboard.",
+    "tech": [
+      "ci-cd",
+      "dashboard",
+      "developer-tools",
+      "devops",
+      "github-api",
+      "github-app",
+      "nextjs",
+      "pull-requests",
+      "typescript",
+      "vercel"
+    ],
+    "url": "https://outpost-sandy-ten.vercel.app",
+    "repo": "https://github.com/luismgoyone/outpost",
+    "year": 2026,
+    "featured": false
+  }
+]
