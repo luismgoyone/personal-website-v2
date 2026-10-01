@@ -4,7 +4,12 @@ import { Button } from "@/components/ui/button";
 import { projects } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
 
-const featuredProjects = projects.filter((p) => p.featured);
+const HOME_PROJECT_LIMIT = 4;
+
+// The first four featured projects, in lib/data.ts order; the rest live in the archive.
+const featuredProjects = projects
+  .filter((p) => p.featured)
+  .slice(0, HOME_PROJECT_LIMIT);
 
 export function ProjectsSection() {
   return (
