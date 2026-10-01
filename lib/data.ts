@@ -88,6 +88,17 @@ export const experiences: Experience[] = [
 
 const manualProjects: Project[] = [
   {
+    title: "ParsePass",
+    description:
+      "Turns any resume into a clean, ATS-friendly version and shows exactly what an applicant tracking system reads, before and after. It flags layout problems like two-column designs and tables, uses AI to restructure the resume into one single-column template with an honesty check that flags anything not in the original, and proves the export parses by reading it back. Also matches a resume against a job description's keywords and suggests stronger bullet wording without adding facts.",
+    summary: "See what an ATS reads from your resume, and export an ATS-friendly version that provably parses.",
+    tech: ["Next.js", "TypeScript", "Claude API", "Gemini API", "Tailwind CSS", "pdf.js", "Playwright", "Vercel"],
+    url: "https://parsepass.vercel.app",
+    repo: "https://github.com/luismgoyone/ParsePass",
+    year: 2026,
+    featured: true,
+  },
+  {
     title: "Northmark",
     description:
       "A read-only decision dashboard for an XAUUSD (gold) M5 trading strategy. It watches the live market, runs a breakout-and-retest checklist as a sequence of pure, testable gates, and shows at a glance whether to wait or that a setup is live, with the entry, stop, targets, and lot size it implies. It never places orders.",
