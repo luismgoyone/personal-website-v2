@@ -1,5 +1,16 @@
 [
   {
+    "title": "Lead Autopilot",
+    "description": "AI inquiry autopilot for a demo dental clinic: tags, logs to Sheets, drafts replies, alerts the owner.",
+    "tech": [
+      "TypeScript"
+    ],
+    "url": "https://github.com/luismgoyone/lead-autopilot",
+    "repo": "https://github.com/luismgoyone/lead-autopilot",
+    "year": 2026,
+    "featured": false
+  },
+  {
     "title": "Outpost",
     "description": "Personal engineering control center: PRs, CI, deployments and releases across all your GitHub repos in one dense dashboard.",
     "tech": [
