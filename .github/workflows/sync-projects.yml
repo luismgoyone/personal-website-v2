@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write # dispatch CI
   contents: write
   pull-requests: write
 
@@ -35,6 +36,7 @@ jobs:
           SUMMARY_PATH: ${{ runner.temp }}/sync-summary.md
 
       - name: Open or update pull request
+        id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
           branch: automation/sync-github-projects
@@ -43,3 +45,12 @@ jobs:
           commit-message: "chore: sync GitHub projects into archive"
           title: "Sync new GitHub projects into the archive"
           body-path: ${{ runner.temp }}/sync-summary.md
+
+      # PRs opened with GITHUB_TOKEN wait for manual approval before pull_request
+      # workflows run. workflow_dispatch is exempt, and its result lands on the
+      # PR's head commit, which satisfies the required CI check.
+      - name: Run CI on the pull request
+        if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run ci.yml --ref automation/sync-github-projects
