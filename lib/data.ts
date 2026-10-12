@@ -88,33 +88,34 @@ export const experiences: Experience[] = [
 
 const manualProjects: Project[] = [
   {
-    title: "ParsePass",
+    title: "Outpost",
     description:
-      "Turns any resume into a clean, ATS-friendly version and shows exactly what an applicant tracking system reads, before and after. It flags layout problems like two-column designs and tables, uses AI to restructure the resume into one single-column template with an honesty check that flags anything not in the original, and proves the export parses by reading it back. Also matches a resume against a job description's keywords and suggests stronger bullet wording without adding facts.",
-    summary: "See what an ATS reads from your resume, and export an ATS-friendly version that provably parses.",
-    tech: ["Next.js", "TypeScript", "Claude API", "Gemini API", "Tailwind CSS", "pdf.js", "Playwright", "Vercel"],
-    url: "https://parsepass.vercel.app",
-    repo: "https://github.com/luismgoyone/ParsePass",
+      "A personal engineering control center that brings PRs, CI, deployments and releases across all your GitHub repos into one dense dashboard.",
+    summary: "PRs, CI, deployments and releases across all your GitHub repos in one dense dashboard.",
+    tech: ["Next.js", "TypeScript", "GitHub API", "GitHub Apps", "Vercel"],
+    url: "https://outpost-sandy-ten.vercel.app",
+    repo: "https://github.com/luismgoyone/outpost",
     year: 2026,
     featured: true,
   },
   {
-    title: "Northmark",
+    title: "OT Tracker",
     description:
-      "A read-only decision dashboard for an XAUUSD (gold) M5 trading strategy. It watches the live market, runs a breakout-and-retest checklist as a sequence of pure, testable gates, and shows at a glance whether to wait or that a setup is live, with the entry, stop, targets, and lot size it implies. It never places orders.",
-    summary: "Read-only decision dashboard for an XAUUSD (gold) M5 trading strategy. Never places orders.",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vitest", "Vercel"],
-    url: "https://northmark-one.vercel.app/",
+      "A full-stack web application for managing employee overtime records.",
+    summary: "Full-stack app for managing employee overtime records.",
+    tech: ["React", "TypeScript", "MUI", "Vite", "PostgreSQL", "Node.js", "NestJS", "Docker", "JWT Authentication"],
+    url: "https://ot-management.netlify.app/",
     year: 2026,
     featured: true,
   },
   {
-    title: "Personal Website v2",
+    title: "Lead Autopilot",
     description:
-      "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
-    summary: "This portfolio, built with Next.js 16, Tailwind CSS v4, and Shadcn/ui.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
-    url: "https://github.com/luismgoyone/personal-website-v2",
+      "An AI inquiry autopilot for a demo dental clinic. AI tags each inquiry, logs it to Google Sheets, emails a reply, alerts the owner, and holds urgent ones for approval.",
+    summary: "AI inquiry autopilot for a demo dental clinic: tags, logs to Sheets, replies, and alerts the owner.",
+    tech: ["Next.js", "TypeScript", "AI SDK", "Gemini API", "Google Sheets", "Resend", "Cloudflare Turnstile", "Discord Webhooks", "Tailwind CSS", "Vercel"],
+    url: "https://lead-autopilot-six.vercel.app",
+    repo: "https://github.com/luismgoyone/lead-autopilot",
     year: 2026,
     featured: true,
   },
@@ -129,6 +130,37 @@ const manualProjects: Project[] = [
     featured: true,
   },
   {
+    title: "ParsePass",
+    description:
+      "Turns any resume into a clean, ATS-friendly version and shows exactly what an applicant tracking system reads, before and after. It flags layout problems like two-column designs and tables, uses AI to restructure the resume into one single-column template with an honesty check that flags anything not in the original, and proves the export parses by reading it back. Also matches a resume against a job description's keywords and suggests stronger bullet wording without adding facts.",
+    summary: "See what an ATS reads from your resume, and export an ATS-friendly version that provably parses.",
+    tech: ["Next.js", "TypeScript", "Claude API", "Gemini API", "Tailwind CSS", "pdf.js", "Playwright", "Vercel"],
+    url: "https://parsepass.vercel.app",
+    repo: "https://github.com/luismgoyone/ParsePass",
+    year: 2026,
+    featured: false,
+  },
+  {
+    title: "Northmark",
+    description:
+      "A read-only decision dashboard for an XAUUSD (gold) M5 trading strategy. It watches the live market, runs a breakout-and-retest checklist as a sequence of pure, testable gates, and shows at a glance whether to wait or that a setup is live, with the entry, stop, targets, and lot size it implies. It never places orders.",
+    summary: "Read-only decision dashboard for an XAUUSD (gold) M5 trading strategy. Never places orders.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vitest", "Vercel"],
+    url: "https://northmark-one.vercel.app/",
+    year: 2026,
+    featured: false,
+  },
+  {
+    title: "Personal Website v2",
+    description:
+      "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
+    summary: "This portfolio, built with Next.js 16, Tailwind CSS v4, and Shadcn/ui.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
+    url: "https://github.com/luismgoyone/personal-website-v2",
+    year: 2026,
+    featured: false,
+  },
+  {
     title: "Personal Website v1",
     description:
       "This is the first version of my personal website, showcasing my projects and skills.",
@@ -139,16 +171,6 @@ const manualProjects: Project[] = [
     featured: false,
   },
   {
-    title: "OT Tracker",
-    description:
-      "A full-stack web application for managing employee overtime records.",
-    summary: "Full-stack app for managing employee overtime records.",
-    tech: ["React", "TypeScript", "MUI", "Vite", "PostgreSQL", "Node.js", "NestJS", "Docker", "JWT Authentication"],
-    url: "https://ot-management.netlify.app/",
-    year: 2026,
-    featured: true,
-  },
-  {
     title: "User Management API",
     description:
       "This is a Node.js Express backend application that serves as a REST API for user management and posting functionality, built as a coding exercise from Booky.",
@@ -156,7 +178,7 @@ const manualProjects: Project[] = [
     tech: ["Node.js", "Express.js", "JavaScript", "REST API", "PostgreSQL", "dotenv"],
     url: "https://github.com/luismgoyone/express-exercise",
     year: 2024,
-    featured: true,
+    featured: false,
   },
 ];
 
