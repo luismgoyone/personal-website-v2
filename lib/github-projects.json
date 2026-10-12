@@ -29,5 +29,16 @@
     "repo": "https://github.com/luismgoyone/outpost",
     "year": 2026,
     "featured": false
+  },
+  {
+    "title": "Pdf Editor",
+    "description": "Browser-only, privacy-first PDF editor. Files never leave your device.",
+    "tech": [
+      "TypeScript"
+    ],
+    "url": "https://pdf-editor-navy.vercel.app",
+    "repo": "https://github.com/luismgoyone/pdf-editor",
+    "year": 2026,
+    "featured": false
   }
 ]
