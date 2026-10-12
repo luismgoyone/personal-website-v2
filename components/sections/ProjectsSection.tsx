@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const HOME_PROJECT_LIMIT = 4;
 
-// The first four featured projects, in lib/data.ts order; the rest live in the archive.
+// Featured projects, in lib/data.ts order; the rest live in the archive.
 const featuredProjects = projects
   .filter((p) => p.featured)
   .slice(0, HOME_PROJECT_LIMIT);
