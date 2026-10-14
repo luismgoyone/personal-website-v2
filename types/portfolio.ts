@@ -1,13 +1,9 @@
-export interface NavLink {
-  label: string;
-  href: string;
-}
-
 export interface Experience {
   company: string;
   companyDescription: string;
   role: string;
   period: string;
+  summary: string; // one line for the home page
   description: string[];
   current?: boolean;
   companyUrl?: string;
@@ -40,14 +36,38 @@ export interface Education {
 export interface SocialLink {
   platform: string;
   href: string;
-  icon: "Mail" | "Github" | "Linkedin" | "ExternalLink";
+  icon: "Github" | "Linkedin" | "ExternalLink";
 }
 
 export interface PersonalInfo {
   name: string;
+  shortName: string;
   title: string;
   tagline: string;
-  email: string;
   location: string;
   bio: string;
+}
+
+export interface PipelineStep {
+  agent: string;
+  does: string;
+  output: string;
+  human?: boolean;
+}
+
+export interface Availability {
+  intro: string;
+  services: { label: string; example?: string }[]; // example: a project title in lib/data.ts
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+}
+
+export interface NowEntry {
+  updated: string;
+  items: string[];
 }

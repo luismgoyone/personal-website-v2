@@ -1,29 +1,202 @@
-import { SpotlightEffect } from "@/components/layout/SpotlightEffect";
-import { Sidebar } from "@/components/layout/Sidebar";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { ContactSection } from "@/components/sections/ContactSection";
-import { ExperienceSection } from "@/components/sections/ExperienceSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { SkillsSection } from "@/components/sections/SkillsSection";
+import Link from "next/link";
+import { PipelineTrace } from "@/components/site/PipelineTrace";
+import { Row } from "@/components/site/Row";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { availability, experiences, now, personalInfo, projects, socialLinks, testimonials } from "@/lib/data";
+import { formatDate, getPosts } from "@/lib/posts";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const HOME_PROJECT_LIMIT = 4;
+
+// Featured projects, in lib/data.ts order; the rest live in the archive.
+const featuredProjects = projects.filter((p) => p.featured).slice(0, HOME_PROJECT_LIMIT);
+const linkedIn = socialLinks.find((l) => l.platform === "LinkedIn");
+const chief = experiences.find((e) => e.company.startsWith("Chief"));
+
+function projectHref(title: string) {
+  const p = projects.find((x) => x.title === title);
+  return p?.url ?? p?.repo;
+}
 
 export default function HomePage() {
-  return (
-    <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 lg:px-24 lg:py-0">
-      <SpotlightEffect />
-      <div className="lg:flex lg:justify-between lg:gap-4">
-        {/* Left: sticky sidebar */}
-        <aside className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-5/12 lg:flex-col lg:justify-between lg:py-24">
-          <Sidebar />
-        </aside>
+  const posts = getPosts();
+  const pipelinePost = posts.find((p) => p.slug === "agent-pipeline");
 
-        {/* Right: scrollable content */}
-        <main className="pt-24 lg:w-7/12 lg:py-24">
-          <AboutSection />
-          <ExperienceSection />
-          <ProjectsSection />
-          <SkillsSection />
-          <ContactSection />
+  return (
+    <div className="px-5">
+      <div className="mx-auto max-w-[860px] pt-12 pb-16 sm:pt-18">
+        <SiteHeader />
+
+        <main>
+          <Row label={<>{personalInfo.title}<br />{personalInfo.location}</>} className="mt-16 sm:mt-22">
+            <h1 className="mb-5 text-[26px] leading-tight font-semibold tracking-[-0.015em] text-balance sm:text-[32px]">
+              {personalInfo.tagline}
+            </h1>
+            <p className="mb-3.5 leading-relaxed text-body">
+              Part-time at{" "}
+              <a href={chief?.companyUrl} target="_blank" rel="noopener noreferrer" className="link text-foreground">
+                Chief
+              </a>
+              , where a Claude Code pipeline I designed merged{" "}
+              <strong className="font-semibold text-foreground">149 pull requests in my first three months</strong>, a
+              quarter of the team&apos;s human-authored merges. Full-time at 24metrics, turning complex Figma into
+              production interfaces. Before that, two and a half years at Booky shipping React features used by millions.
+            </p>
+            <p className="leading-relaxed text-body">Agents draft the code. I own the scope, the review, and what ships.</p>
+          </Row>
+
+          <Row label="How a ticket ships">
+            <figure>
+              <PipelineTrace />
+              <figcaption className="mt-2.5 text-sm text-muted">
+                Web app, native desktop app, shared TypeScript and Go backend.
+                {pipelinePost && (
+                  <>
+                    {" "}
+                    <Link href={`/writing/${pipelinePost.slug}`} className="link text-foreground">
+                      Read how it works →
+                    </Link>
+                  </>
+                )}
+              </figcaption>
+            </figure>
+          </Row>
+
+          <Row label="Projects" id="projects">
+            <ul>
+              {featuredProjects.map((p) => (
+                <li key={p.title}>
+                  <a
+                    href={p.url ?? p.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex justify-between gap-4 py-2.5"
+                  >
+                    <span>
+                      <span className="font-medium group-hover:text-accent">{p.title}</span>
+                      <span className="text-muted"> · {p.summary ?? p.description}</span>
+                    </span>
+                    <span className="meta shrink-0">{p.year}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <Link href="/archive" className="mt-2 inline-block text-sm text-muted transition-colors hover:text-foreground">
+              Everything else in the archive →
+            </Link>
+          </Row>
+
+          {posts.length > 0 && (
+            <Row label="Writing">
+              <ul>
+                {posts.map((post) => (
+                  <li key={post.slug}>
+                    <Link href={`/writing/${post.slug}`} className="group flex justify-between gap-4 py-2.5">
+                      <span className="font-medium group-hover:text-accent">
+                        {post.title}
+                        {post.draft && <span className="meta"> · draft</span>}
+                      </span>
+                      <span className="meta shrink-0">{formatDate(post.date)}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Row>
+          )}
+
+          <Row label="Experience" id="experience">
+            <ul className="flex flex-col gap-7">
+              {experiences.map((exp) => (
+                <li key={exp.company}>
+                  <div className="flex flex-wrap justify-between gap-x-4 gap-y-0.5">
+                    <h3 className="font-medium">
+                      {exp.company.replace(/ \(.*\)$/, "")}{" "}
+                      <span className="font-normal text-muted">· {exp.role}</span>
+                    </h3>
+                    <span className="meta">{exp.period}</span>
+                  </div>
+                  <p className="mt-1 leading-relaxed text-body">{exp.summary}</p>
+                  {exp.tech && exp.tech.length > 0 && (
+                    <ul aria-label="Tech" className="mt-2.5 flex flex-wrap gap-1.5">
+                      {exp.tech.map((t) => (
+                        <li key={t} className="rounded-[5px] bg-chip px-[7px] py-[5px] font-mono text-xs leading-none text-muted">
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={`${basePath}/Luis_Goyone_Resume.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-block text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Full resume (PDF) →
+            </a>
+          </Row>
+
+          {testimonials.length > 0 && (
+            <Row label="Kind words">
+              <div className="flex flex-col gap-8">
+                {testimonials.map((t) => (
+                  <blockquote key={t.name}>
+                    <p className="mb-1.5 text-lg leading-normal">&ldquo;{t.quote}&rdquo;</p>
+                    <footer className="meta">
+                      {t.name}, {t.role} at {t.company}
+                    </footer>
+                  </blockquote>
+                ))}
+              </div>
+            </Row>
+          )}
+
+          {now.items.length > 0 && (
+            <Row label={<>Now<br /><span className="text-tree">{now.updated}</span></>}>
+              <ul className="list-disc space-y-1 pl-[18px] text-body">
+                {now.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </Row>
+          )}
+
+          <Row label="Available for">
+            <p className="leading-relaxed text-body">
+              {availability.intro}{" "}
+              {availability.services.map((s, i) => {
+                const href = s.example ? projectHref(s.example) : undefined;
+                const sep = i === availability.services.length - 1 ? ". " : i === availability.services.length - 2 ? ", and " : ", ";
+                return (
+                  <span key={s.label}>
+                    {s.label}
+                    {href && (
+                      <>
+                        {" ("}
+                        <a href={href} target="_blank" rel="noopener noreferrer" className="link text-foreground">
+                          like {s.example}
+                        </a>
+                        {")"}
+                      </>
+                    )}
+                    {sep}
+                  </span>
+                );
+              })}
+              {linkedIn && (
+                <a href={linkedIn.href} target="_blank" rel="noopener noreferrer" className="link text-foreground">
+                  Message me on LinkedIn
+                </a>
+              )}
+              .
+            </p>
+          </Row>
         </main>
+
+        <SiteFooter />
       </div>
     </div>
   );

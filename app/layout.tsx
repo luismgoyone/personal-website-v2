@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { education, personalInfo, socialLinks } from "@/lib/data";
+import { getPosts } from "@/lib/posts";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -40,7 +41,12 @@ export const metadata: Metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Luis Michael Goyone", url: siteUrl }],
-  alternates: { canonical: `${siteUrl}/` },
+  alternates: {
+    canonical: `${siteUrl}/`,
+    ...(getPosts().length > 0 && {
+      types: { "application/rss+xml": [{ url: `${siteUrl}/feed.xml`, title: "Writing" }] },
+    }),
+  },
   openGraph: {
     type: "profile",
     url: `${siteUrl}/`,
@@ -66,7 +72,6 @@ const personJsonLd = {
   url: siteUrl,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Baguio City",
     addressCountry: "PH",
   },
   sameAs: socialLinks
@@ -94,7 +99,7 @@ export default function RootLayout({
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

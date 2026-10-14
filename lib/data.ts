@@ -1,30 +1,25 @@
 import type {
   Education,
+  Availability,
   Experience,
-  NavLink,
   PersonalInfo,
   Project,
+  NowEntry,
+  PipelineStep,
   Skill,
   SocialLink,
+  Testimonial,
 } from "@/types/portfolio";
 import githubProjects from "./github-projects.json";
 
 export const personalInfo: PersonalInfo = {
   name: "Luis Michael Goyone",
+  shortName: "Luis Goyone",
   title: "Software Engineer",
-  tagline: "I build web products, and the AI agent workflows that ship them.",
-  email: "luismichaelgoyone@gmail.com",
-  location: "Baguio City, Philippines",
+  tagline: "I build web products, and the agent workflows that ship them.",
+  location: "Philippines · Remote",
   bio: "I'm a software engineer with 4+ years of experience designing and building scalable web applications. I specialize in React and TypeScript, and I care deeply about clean code, great user experiences, and collaborative development.\n\nCurrently at 24metrics, where I help protect advertising budgets by converting complex Figma designs into responsive, production-ready interfaces. Part-time, I'm a software engineer at Chief (formerly Storytell), where I run my own Claude Code agent pipeline that takes Linear tickets to review-ready pull requests across web, desktop, and Go backend code. Previously at Booky, where I built features used by millions of users across the Philippines.",
 };
-
-export const navLinks: NavLink[] = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
-];
 
 export const experiences: Experience[] = [
   {
@@ -33,7 +28,9 @@ export const experiences: Experience[] = [
     companyDescription:
       "AI meeting assistant that transcribes meetings, summarizes them, and acts on them across tools like Notion, Slack, GitHub, and Linear.",
     role: "Software Engineer (Part-time)",
-    period: "Jun 2026 — Present",
+    summary:
+      "Run my own five-agent Claude Code pipeline from Linear ticket to review-ready PR. Every UI change verified in Playwright and recorded.",
+    period: "Jun 2026 – Present",
     current: true,
     description: [
       "Merged 149 pull requests in my first three months, 25% of the engineering team's human-authored merges.",
@@ -48,7 +45,9 @@ export const experiences: Experience[] = [
     companyDescription:
       "Ad fraud protection platform that helps businesses ensure genuine, high-quality traffic.",
     role: "Software Engineer",
-    period: "Mar 2025 — Present",
+    period: "Mar 2025 – Present",
+    summary:
+      "Ad fraud protection. Complex Figma layouts into fast interfaces; led the latest site launch.",
     current: true,
     description: [
       "I bridge the gap between design and production by turning complex Figma layouts into high-performance web interfaces.",
@@ -62,7 +61,9 @@ export const experiences: Experience[] = [
     companyDescription:
       "Deals and discoveries platform connecting consumers with food establishments across the Philippines.",
     role: "Software Engineer",
-    period: "Aug 2022 — Feb 2025",
+    period: "Aug 2022 – Feb 2025",
+    summary:
+      "Features for a deals platform serving millions across the Philippines; ran cross-team code review.",
     description: [
       "I created and delivered scalable React and TypeScript solutions for a platform serving millions, directly boosting user engagement and merchant sales.",
       "My work spans across multiple products where I maintain high-performance standards and cross-product consistency.",
@@ -75,7 +76,9 @@ export const experiences: Experience[] = [
     companyDescription:
       "All-in-one cashless and guest management solution for venues and events using NFC wearable technology.",
     role: "Software Engineer",
-    period: "Jan 2022 — May 2022",
+    period: "Jan – May 2022",
+    summary:
+      "Mobile ordering web app and venue dashboard for cashless events.",
     description: [
       "I contributed to the successful release of PouchNation's Mobile Ordering Web Application, enabling venues to streamline operations.",
       "I improved and expanded features in PouchNation's Venue Dashboard Application, enhancing analytics and venue management capabilities.",
@@ -153,9 +156,9 @@ const manualProjects: Project[] = [
   {
     title: "Personal Website v2",
     description:
-      "This portfolio — built with Next.js 16, Tailwind CSS v4, and Shadcn/ui. Designed with a focus on clean typography and minimal UI inspired by Brittany Chiang's portfolio.",
-    summary: "This portfolio, built with Next.js 16, Tailwind CSS v4, and Shadcn/ui.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/ui"],
+      "This site: a Next.js 16 static export with Tailwind CSS v4, a markdown writing section, and a project archive synced from GitHub.",
+    summary: "This site: Next.js 16, Tailwind CSS v4, markdown posts, and an archive synced from GitHub.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Markdown"],
     url: "https://github.com/luismgoyone/personal-website-v2",
     year: 2026,
     featured: false,
@@ -233,11 +236,6 @@ export const education: Education = {
 
 export const socialLinks: SocialLink[] = [
   {
-    platform: "Email",
-    href: "mailto:luismichaelgoyone@gmail.com",
-    icon: "Mail",
-  },
-  {
     platform: "GitHub",
     href: "https://github.com/luismgoyone",
     icon: "Github",
@@ -248,3 +246,32 @@ export const socialLinks: SocialLink[] = [
     icon: "Linkedin",
   },
 ];
+
+// The agent pipeline shown on the home page, one row per stage.
+export const pipeline: PipelineStep[] = [
+  { agent: "ticket", does: "a Linear issue comes in", output: "in" },
+  { agent: "planner", does: "reads the ticket and the code, writes a scoped plan", output: "plan" },
+  { agent: "coder", does: "implements exactly the plan", output: "diff" },
+  { agent: "tester", does: "writes and runs the tests", output: "tests" },
+  { agent: "qa", does: "drives the real app in Playwright", output: "video" },
+  { agent: "reviewer", does: "audits the diff before the PR", output: "report" },
+  { agent: "luis", does: "scope, review, merge", output: "ship", human: true },
+];
+
+export const availability: Availability = {
+  intro: "A few contract builds alongside my roles:",
+  services: [
+    { label: "AI automations for small businesses", example: "Lead Autopilot" },
+    { label: "Figma to production front ends" },
+    { label: "internal dashboards", example: "Outpost" },
+  ],
+};
+
+// Real quotes only (name, role, company). The section stays hidden while empty.
+export const testimonials: Testimonial[] = [];
+
+// What I'm focused on right now. The section stays hidden while `items` is empty.
+export const now: NowEntry = {
+  updated: "Oct 2026",
+  items: [],
+};
