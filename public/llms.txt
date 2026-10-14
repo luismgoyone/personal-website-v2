@@ -1,6 +1,6 @@
 # Luis Michael Goyone
 
-> Software engineer based in Baguio City, Philippines, with 4+ years of experience building web applications in React and TypeScript. I build web products, and the AI agent workflows that ship them.
+> Software engineer based in the Philippines, working remotely, with 4+ years of experience building web applications in React and TypeScript. I build web products, and the AI agent workflows that ship them.
 
 ## Roles
 
@@ -22,8 +22,7 @@
 
 ## Links
 
-- Website: https://luismgoyone.github.io/personal-website-v2/
-- Resume (PDF): https://luismgoyone.github.io/personal-website-v2/Luis_Goyone_Resume.pdf
+- Website: https://luisgoyone.com/
+- Resume (PDF): https://luisgoyone.com/Luis_Goyone_Resume.pdf
 - GitHub: https://github.com/luismgoyone
 - LinkedIn: https://www.linkedin.com/in/luisgoyone/
-- Email: luismichaelgoyone@gmail.com
