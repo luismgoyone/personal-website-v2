@@ -41,7 +41,7 @@ A week later, on a different ticket, I asked whether it had actually checked the
 
 Unit tests tell you the code does what the code says. They can't tell you a person can click through the feature. Every UI change goes through `/gate`, which drives the actual app in a browser, and then `/record`, which records the flow and attaches the video to the PR.
 
-`/record` used to be something the agent could skip. In September it did, "on my own judgment", for a change to a native dialog. My reply was "why didnt you run /record?" The rule is strict now: the PR gets a video, or terminal output for backend changes, or a loud MISSING banner. It doesn't get to skip and say nothing.
+`/record` used to be something the agent could skip. In September it did, "on my own judgment", for a change to a native dialog. My reply was "why didn't you run /record?" The rule is strict now: the PR gets a video, or terminal output for backend changes, or a loud MISSING banner. It doesn't get to skip and say nothing.
 
 Even with a video, someone has to watch it. In October I got one for a bug fix that proved nothing. There was no before clip, the wrong user was on screen, and the trigger was faked instead of happening for real. I told it "the video screen recorded does not provide evidence of our fix" and had it rerun with a real host and a guest joining late, which was the actual bug.
 

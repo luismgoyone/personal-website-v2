@@ -17,7 +17,7 @@ Its answer was to phase by risk, not by feature. Phase 1 was to prove that a nat
 
 Two research subagents mapped how the desktop app starts a session, and they found the spec was wrong about where capture and transcription happen. Both run on the phone.
 
-Some calls were mine. Sign-in had to be in the MVP: "ideally someone who will use this will not be hardcoded, the user has to login, select the project…, name the session." I also added joining a session someone else is hosting on desktop. When Claude found that each session is recorded from one host machine, I cut it down: "since we'lre all in a single call, there's no point in doing so cause your voice is already transcribed on their end. Okay then let's make them just watchers."
+Some calls were mine. Sign-in had to be in the MVP: "ideally someone who will use this will not be hardcoded, the user has to login, select the project…, name the session." I also added joining a session someone else is hosting on desktop. When Claude found that each session is recorded from one host machine, I cut it down: "since we're all in a single call, there's no point in doing so cause your voice is already transcribed on their end. Okay then let's make them just watchers."
 
 ## Setup, which was mostly waiting
 
@@ -35,7 +35,7 @@ Then I asked Claude to open the Stitch project with Claude in Chrome. It loaded 
 
 Claude ported the screens to SwiftUI with our real tokens, and it cut the things Stitch had made up: trust badges, a "48kHz spatial capture" label, settings that don't exist. A Stitch MCP got connected later, and we never ended up using it.
 
-After that the design work was me pointing at the desktop app and saying "I think we should copy this". The transcript view ended up 1:1 with desktop, down to the speaker colors. The live session screen went through a bottom tab bar, a hidden bar that slides up ("hmm what if initiallt the bottom navbar is hiddeen…"), and finally no bottom bar at all.
+After that the design work was me pointing at the desktop app and saying "I think we should copy this". The transcript view ended up 1:1 with desktop, down to the speaker colors. The live session screen went through a bottom tab bar, a hidden bar that slides up ("hmm what if initially the bottom navbar is hidden…"), and finally no bottom bar at all.
 
 Some of those rounds were slow. "bro it's still like that wdym" is a real message. So is "There! Better."
 
@@ -47,7 +47,7 @@ The bugs that mattered all came from my phone.
 
 Backgrounding the app ended the session. The transcript didn't sync. A phone call, Siri or another app's audio could leave the recording stuck, because iOS doesn't always tell you an interruption has ended. I sent screenshots and screen recordings (about 90 of my messages had images in them) and numbered lists of what was wrong, and Claude fixed them one by one: background audio mode, a liveness ping on the websocket, a network monitor, recovery when an interruption never ends.
 
-In October I tried to get Claude to reproduce one of these itself. I asked, "So if use phone mirroring will you be able to try that out?" It drove iPhone Mirroring with computer use, but iOS blocks the phone's mic while mirroring, so it couldn't. It pulled frames out of my screen recording and lined them up with the session transcript instead.
+In October I tried to get Claude to reproduce one of these itself. I asked, "So if I use phone mirroring will you be able to try that out?" It drove iPhone Mirroring with computer use, but iOS blocks the phone's mic while mirroring, so it couldn't. It pulled frames out of my screen recording and lined them up with the session transcript instead.
 
 One limit I didn't want to accept: iOS won't let an app capture system or call audio. I pushed back more than once, with "Maybe there's a workaround for this? Like let's think outside the box instead of focusing on what we cannot control." There wasn't one. The app shows a notice on first run instead.
 
