@@ -1,15 +1,24 @@
 import { pipeline } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import type { PipelineStep } from "@/types/portfolio";
 
 // The agent pipeline drawn as a run log: one row per stage, the human last.
 // Steps with depth 1 run inside the stage above them and hang off its rail;
 // the brief trace (home page) leaves them out and shows each stage's `brief`.
-export function PipelineTrace({ brief = false }: { brief?: boolean }) {
-  const steps = brief ? pipeline.filter((s) => s.depth !== 1) : pipeline;
+export function PipelineTrace({
+  steps: all = pipeline,
+  brief = false,
+  label = "How a ticket ships",
+}: {
+  steps?: PipelineStep[];
+  brief?: boolean;
+  label?: string;
+}) {
+  const steps = brief ? all.filter((s) => s.depth !== 1) : all;
   return (
     <div
       role="list"
-      aria-label="How a ticket ships"
+      aria-label={label}
       className="overflow-x-auto rounded-xl border border-line bg-surface px-4 py-4 font-mono text-[12px] leading-relaxed text-body sm:px-5 sm:text-[13px]"
     >
       {steps.map((step, i) => {
@@ -18,7 +27,7 @@ export function PipelineTrace({ brief = false }: { brief?: boolean }) {
         const glyph = nested ? "│" : i === 0 ? "▸" : i === steps.length - 1 ? "└" : "├";
         return (
           <div
-            key={step.agent}
+            key={`${step.agent}-${i}`}
             role="listitem"
             className={cn(
               "grid grid-cols-[2ch_18ch_minmax(0,1fr)] gap-x-2 py-0.5 sm:grid-cols-[2.5ch_19ch_minmax(0,1fr)_auto] sm:gap-x-2.5",
