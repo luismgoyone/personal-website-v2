@@ -16,7 +16,7 @@ export const personalInfo: PersonalInfo = {
   name: "Luis Michael Goyone",
   shortName: "Luis Goyone",
   title: "Software Engineer",
-  tagline: "I build web products, and the agent workflows that ship them.",
+  tagline: "I build web apps, and the Claude Code agents that help me ship them.",
   location: "Philippines · Remote",
   bio: "I'm a software engineer with 4+ years of experience designing and building scalable web applications. I specialize in React and TypeScript, and I care deeply about clean code, great user experiences, and collaborative development.\n\nCurrently at 24metrics, where I help protect advertising budgets by converting complex Figma designs into responsive, production-ready interfaces. Part-time, I'm a software engineer at Chief (formerly Storytell), where I run my own Claude Code agent pipeline that takes Linear tickets to review-ready pull requests across web, desktop, and Go backend code. Previously at Booky, where I built features used by millions of users across the Philippines.",
 };
@@ -29,16 +29,17 @@ export const experiences: Experience[] = [
       "AI meeting assistant that transcribes meetings, summarizes them, and acts on them across tools like Notion, Slack, GitHub, and Linear.",
     role: "Software Engineer (Part-time)",
     summary:
-      "Run my own five-agent Claude Code pipeline from Linear ticket to review-ready PR. Every UI change verified in Playwright and recorded.",
+      "Built the Claude Code setup that takes my Linear tickets to review-ready PRs, with a recorded Playwright run on every UI change. Also built the iOS and Android apps.",
     period: "Jun 2026 – Present",
     current: true,
     description: [
       "Merged 149 pull requests in my first three months, 25% of the engineering team's human-authored merges.",
-      "Designed and run my own Claude Code agent pipeline (planner, coder, tester, QA, and reviewer subagents) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend.",
+      "Designed and run my own Claude Code pipeline (planner, coder and tester subagents, plus slash commands and skills for scoping, review, browser verification, video proof and review follow-up) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend.",
       "Every UI change is verified in a real browser with Playwright and recorded as video.",
+      "Built native iOS (SwiftUI) and Android (Jetpack Compose) versions of the desktop app.",
       "Agents draft the code; I own scope, review, and what ships.",
     ],
-    tech: ["Claude Code", "TypeScript", "SolidJS", "Go", "PostgreSQL", "Playwright"],
+    tech: ["Claude Code", "TypeScript", "SolidJS", "Go", "SwiftUI", "Kotlin", "PostgreSQL", "Playwright"],
   },
   {
     company: "24metrics",
@@ -47,7 +48,7 @@ export const experiences: Experience[] = [
     role: "Software Engineer",
     period: "Mar 2025 – Present",
     summary:
-      "Ad fraud protection. Complex Figma layouts into fast interfaces; led the latest site launch.",
+      "Ad fraud protection platform. I build the front end from Figma designs and led our last site launch.",
     current: true,
     description: [
       "I bridge the gap between design and production by turning complex Figma layouts into high-performance web interfaces.",
@@ -63,7 +64,7 @@ export const experiences: Experience[] = [
     role: "Software Engineer",
     period: "Aug 2022 – Feb 2025",
     summary:
-      "Features for a deals platform serving millions across the Philippines; ran cross-team code review.",
+      "Shipped React features for a deals app used by millions in the Philippines, and ran code review across teams.",
     description: [
       "I created and delivered scalable React and TypeScript solutions for a platform serving millions, directly boosting user engagement and merchant sales.",
       "My work spans across multiple products where I maintain high-performance standards and cross-product consistency.",
@@ -127,7 +128,7 @@ const manualProjects: Project[] = [
     title: "Notedt",
     description:
       "A web application for tracking personal budgets, built with React, TypeScript, Tailwind CSS, and Chart.js.",
-    summary: "Web app for tracking personal budgets, with Chart.js visualizations.",
+    summary: "Budget tracker with Chart.js charts.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
     url: "https://notedt.luisgoyone.com",
     repo: "https://github.com/luismgoyone/react-notedt",
@@ -252,20 +253,29 @@ export const socialLinks: SocialLink[] = [
 
 // The agent pipeline shown on the home page, one row per stage.
 export const pipeline: PipelineStep[] = [
-  { agent: "ticket", does: "a Linear issue comes in", output: "in" },
-  { agent: "planner", does: "reads the ticket and the code, writes a scoped plan", output: "plan" },
-  { agent: "coder", does: "implements exactly the plan", output: "diff" },
-  { agent: "tester", does: "writes and runs the tests", output: "tests" },
-  { agent: "qa", does: "drives the real app in Playwright", output: "video" },
-  { agent: "reviewer", does: "audits the diff before the PR", output: "report" },
+  { agent: "/scope", does: "asks the owner, writes a context brief", output: "brief" },
+  {
+    agent: "/loop /ticket",
+    does: "runs unattended in a worktree to a draft PR",
+    brief: "plan, code, test, review, verify, record",
+    output: "pr",
+  },
+  { agent: "planner", does: "a scoped plan from the ticket and code", output: "plan", depth: 1 },
+  { agent: "coder", does: "implements exactly the plan", output: "diff", depth: 1 },
+  { agent: "tester", does: "writes and runs the tests", output: "tests", depth: 1 },
+  { agent: "/code-review", does: "lint, types, review; blocks go to coder", output: "clean", depth: 1 },
+  { agent: "/gate", does: "drives the real app in Playwright", output: "pass", depth: 1 },
+  { agent: "/record", does: "records the flow as video on the PR", output: "video", depth: 1 },
+  { agent: "/resolve-comments", does: "fixes or answers each review thread", output: "push" },
+  { agent: "/learn", does: "repeat review notes become coder rules", output: "rules" },
   { agent: "luis", does: "scope, review, merge", output: "ship", human: true },
 ];
 
 export const availability: Availability = {
-  intro: "A few contract builds alongside my roles:",
+  intro: "I take on a few contract projects on the side:",
   services: [
     { label: "AI automations for small businesses", example: "Lead Autopilot" },
-    { label: "Figma to production front ends" },
+    { label: "front ends built from Figma" },
     { label: "internal dashboards", example: "Outpost" },
   ],
 };

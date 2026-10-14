@@ -16,14 +16,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Luis Michael Goyone — Software Engineer";
+const title = "Luis Michael Goyone · Software Engineer";
 const description =
-  "Personal portfolio of Luis Michael Goyone, a Software Engineer specializing in React and TypeScript who builds web products and AI-assisted development workflows with Claude Code agents.";
+  "Luis Michael Goyone is a software engineer in the Philippines. He builds web apps in React and TypeScript, and the Claude Code agents that help him ship them.";
 const ogImage = {
   url: `${siteUrl}/og-image.png`,
   width: 1200,
   height: 630,
-  alt: "Luis Michael Goyone — Software Engineer",
+  alt: "Luis Michael Goyone · Software Engineer",
 };
 
 export const metadata: Metadata = {
