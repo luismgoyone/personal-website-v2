@@ -54,7 +54,7 @@ export const experiences: Experience[] = [
       "Hand-coded the React and TypeScript front end from Figma for my first five months, then spent six months building and launching the company's WordPress site with Elementor, WP Rocket and custom PHP snippets.",
       "Started coding with AI in early 2026, first with Gemini as an assistant, then shipping in Cursor with Claude for review and the harder tasks.",
       "Learned Go in Q3 2026. Now I ship front end and back end changes together, and agents write most of the code.",
-      "Designed the front end and back end specs for two features and wrote their documentation: retargeting domains and tags for affiliate campaigns, and landing page URL templates per advertiser plus an organization-wide global one.",
+      "Designed the front end and back end specs for two customer-facing features and wrote their documentation.",
       "Wrote Cursor skills that create Linear tickets and carry them out to a draft PR with screenshots, plus a developer agent whose rules come from real review comments.",
       "Built a skill that renders documentation screenshots from the real UI with fictional data, so the docs never need a real customer account.",
     ],
