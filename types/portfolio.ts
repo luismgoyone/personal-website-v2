@@ -53,6 +53,10 @@ export interface PipelineStep {
   does: string;
   output: string;
   human?: boolean;
+  /** 1 = a step inside the stage above it (drawn one level deeper in the tree). */
+  depth?: 1;
+  /** Replaces `does` in the short home-page trace, which hides nested steps. */
+  brief?: string;
 }
 
 export interface Availability {

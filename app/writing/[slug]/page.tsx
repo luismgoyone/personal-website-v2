@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Fragment } from "react";
+import { PipelineTrace } from "@/components/site/PipelineTrace";
 import { Row } from "@/components/site/Row";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -13,6 +15,8 @@ export const dynamicParams = false;
 // A static export refuses an empty list, so while every post is a draft one
 // placeholder slug is generated; it renders the 404 page and is linked nowhere.
 const NO_POSTS_SLUG = "_";
+
+const PIPELINE_MARKER = "<!-- pipeline -->";
 
 export function generateStaticParams() {
   const slugs = getPosts().map((p) => ({ slug: p.slug }));
@@ -65,8 +69,18 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               {post.summary && <p className="text-lg leading-relaxed text-muted">{post.summary}</p>}
             </Row>
             <Row as="div" className="mt-8">
-              {/* Trusted content: markdown files committed to this repo. */}
-              <div className="post" dangerouslySetInnerHTML={{ __html: post.html }} />
+              {/* Trusted content: markdown files committed to this repo. A
+                  `<!-- pipeline -->` line in a post is replaced by the full trace. */}
+              {post.html.split(PIPELINE_MARKER).map((html, i) => (
+                <Fragment key={i}>
+                  {i > 0 && (
+                    <div className="my-7">
+                      <PipelineTrace />
+                    </div>
+                  )}
+                  <div className="post" dangerouslySetInnerHTML={{ __html: html }} />
+                </Fragment>
+              ))}
             </Row>
           </article>
         </main>

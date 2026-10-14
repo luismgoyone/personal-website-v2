@@ -29,12 +29,12 @@ export const experiences: Experience[] = [
       "AI meeting assistant that transcribes meetings, summarizes them, and acts on them across tools like Notion, Slack, GitHub, and Linear.",
     role: "Software Engineer (Part-time)",
     summary:
-      "Run my own five-agent Claude Code pipeline from Linear ticket to review-ready PR. Every UI change verified in Playwright and recorded.",
+      "Run my own Claude Code pipeline of agents, commands and skills from Linear ticket to review-ready PR. Every UI change verified in Playwright and recorded.",
     period: "Jun 2026 – Present",
     current: true,
     description: [
       "Merged 149 pull requests in my first three months, 25% of the engineering team's human-authored merges.",
-      "Designed and run my own Claude Code agent pipeline (planner, coder, tester, QA, and reviewer subagents) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend.",
+      "Designed and run my own Claude Code pipeline (planner, coder and tester subagents, plus slash commands and skills for scoping, review, browser verification, video proof and review follow-up) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend.",
       "Every UI change is verified in a real browser with Playwright and recorded as video.",
       "Agents draft the code; I own scope, review, and what ships.",
     ],
@@ -252,12 +252,21 @@ export const socialLinks: SocialLink[] = [
 
 // The agent pipeline shown on the home page, one row per stage.
 export const pipeline: PipelineStep[] = [
-  { agent: "ticket", does: "a Linear issue comes in", output: "in" },
-  { agent: "planner", does: "reads the ticket and the code, writes a scoped plan", output: "plan" },
-  { agent: "coder", does: "implements exactly the plan", output: "diff" },
-  { agent: "tester", does: "writes and runs the tests", output: "tests" },
-  { agent: "qa", does: "drives the real app in Playwright", output: "video" },
-  { agent: "reviewer", does: "audits the diff before the PR", output: "report" },
+  { agent: "/scope", does: "asks the owner, writes a context brief", output: "brief" },
+  {
+    agent: "/loop /ticket",
+    does: "runs unattended in a worktree to a draft PR",
+    brief: "plan, code, test, review, verify, record",
+    output: "pr",
+  },
+  { agent: "planner", does: "a scoped plan from the ticket and code", output: "plan", depth: 1 },
+  { agent: "coder", does: "implements exactly the plan", output: "diff", depth: 1 },
+  { agent: "tester", does: "writes and runs the tests", output: "tests", depth: 1 },
+  { agent: "/code-review", does: "lint, types, review; blocks go to coder", output: "clean", depth: 1 },
+  { agent: "/gate", does: "drives the real app in Playwright", output: "pass", depth: 1 },
+  { agent: "/record", does: "records the flow as video on the PR", output: "video", depth: 1 },
+  { agent: "/resolve-comments", does: "fixes or answers each review thread", output: "push" },
+  { agent: "/learn", does: "repeat review notes become coder rules", output: "rules" },
   { agent: "luis", does: "scope, review, merge", output: "ship", human: true },
 ];
 

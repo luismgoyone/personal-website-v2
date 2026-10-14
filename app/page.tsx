@@ -48,9 +48,9 @@ export default function HomePage() {
 
           <Row label="How a ticket ships">
             <figure>
-              <PipelineTrace />
+              <PipelineTrace brief />
               <figcaption className="mt-2.5 text-sm text-muted">
-                Web app, native desktop app, shared TypeScript and Go backend.
+                My own agents, commands and skills, across a web app, native desktop app, shared TypeScript and a Go backend.
                 {pipelinePost && (
                   <>
                     {" "}
