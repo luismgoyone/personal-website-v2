@@ -16,7 +16,7 @@ export const personalInfo: PersonalInfo = {
   name: "Luis Michael Goyone",
   shortName: "Luis Goyone",
   title: "Software Engineer",
-  tagline: "I build web products, and the agent workflows that ship them.",
+  tagline: "I build web apps, and the Claude Code agents that help me ship them.",
   location: "Philippines · Remote",
   bio: "I'm a software engineer with 4+ years of experience designing and building scalable web applications. I specialize in React and TypeScript, and I care deeply about clean code, great user experiences, and collaborative development.\n\nCurrently at 24metrics, where I help protect advertising budgets by converting complex Figma designs into responsive, production-ready interfaces. Part-time, I'm a software engineer at Chief (formerly Storytell), where I run my own Claude Code agent pipeline that takes Linear tickets to review-ready pull requests across web, desktop, and Go backend code. Previously at Booky, where I built features used by millions of users across the Philippines.",
 };
@@ -29,7 +29,7 @@ export const experiences: Experience[] = [
       "AI meeting assistant that transcribes meetings, summarizes them, and acts on them across tools like Notion, Slack, GitHub, and Linear.",
     role: "Software Engineer (Part-time)",
     summary:
-      "Run my own Claude Code pipeline of agents, commands and skills from Linear ticket to review-ready PR. Every UI change verified in Playwright and recorded. Also built the iOS and Android apps.",
+      "Built the Claude Code setup that takes my Linear tickets to review-ready PRs, with a recorded Playwright run on every UI change. Also built the iOS and Android apps.",
     period: "Jun 2026 – Present",
     current: true,
     description: [
@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
     role: "Software Engineer",
     period: "Mar 2025 – Present",
     summary:
-      "Ad fraud protection. Complex Figma layouts into fast interfaces; led the latest site launch.",
+      "Ad fraud protection platform. I build the front end from Figma designs and led our last site launch.",
     current: true,
     description: [
       "I bridge the gap between design and production by turning complex Figma layouts into high-performance web interfaces.",
@@ -64,7 +64,7 @@ export const experiences: Experience[] = [
     role: "Software Engineer",
     period: "Aug 2022 – Feb 2025",
     summary:
-      "Features for a deals platform serving millions across the Philippines; ran cross-team code review.",
+      "Shipped React features for a deals app used by millions in the Philippines, and ran code review across teams.",
     description: [
       "I created and delivered scalable React and TypeScript solutions for a platform serving millions, directly boosting user engagement and merchant sales.",
       "My work spans across multiple products where I maintain high-performance standards and cross-product consistency.",
@@ -128,7 +128,7 @@ const manualProjects: Project[] = [
     title: "Notedt",
     description:
       "A web application for tracking personal budgets, built with React, TypeScript, Tailwind CSS, and Chart.js.",
-    summary: "Web app for tracking personal budgets, with Chart.js visualizations.",
+    summary: "Budget tracker with Chart.js charts.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
     url: "https://notedt.luisgoyone.com",
     repo: "https://github.com/luismgoyone/react-notedt",
@@ -272,10 +272,10 @@ export const pipeline: PipelineStep[] = [
 ];
 
 export const availability: Availability = {
-  intro: "A few contract builds alongside my roles:",
+  intro: "I take on a few contract projects on the side:",
   services: [
     { label: "AI automations for small businesses", example: "Lead Autopilot" },
-    { label: "Figma to production front ends" },
+    { label: "front ends built from Figma" },
     { label: "internal dashboards", example: "Outpost" },
   ],
 };

@@ -38,19 +38,20 @@ export default function HomePage() {
               <a href={chief?.companyUrl} target="_blank" rel="noopener noreferrer" className="link text-foreground">
                 Chief
               </a>
-              , where a Claude Code pipeline I designed merged{" "}
+              , where I merged{" "}
               <strong className="font-semibold text-foreground">149 pull requests in my first three months</strong>, a
-              quarter of the team&apos;s human-authored merges. Full-time at 24metrics, turning complex Figma into
-              production interfaces. Before that, two and a half years at Booky shipping React features used by millions.
+              quarter of the team&apos;s human-authored merges, with a Claude Code setup I built. Full-time at 24metrics,
+              where I build the front end from Figma and led our last site launch. Before that, two and a half years at
+              Booky shipping React features used by millions.
             </p>
-            <p className="leading-relaxed text-body">Agents draft the code. I own the scope, the review, and what ships.</p>
+            <p className="leading-relaxed text-body">The agents write most of the code. I read every diff before it ships.</p>
           </Row>
 
           <Row label="How a ticket ships">
             <figure>
               <PipelineTrace brief />
               <figcaption className="mt-2.5 text-sm text-muted">
-                My own agents, commands and skills, across a web app, native desktop app, shared TypeScript and a Go backend.
+                I wrote all of these myself. They run across Chief&apos;s web app, desktop app, shared TypeScript and Go backend.
                 {pipelinePost && (
                   <>
                     {" "}
