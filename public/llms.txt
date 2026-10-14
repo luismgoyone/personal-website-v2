@@ -22,7 +22,7 @@
 
 ## Links
 
-- Website: https://luismgoyone.github.io/personal-website-v2/
-- Resume (PDF): https://luismgoyone.github.io/personal-website-v2/Luis_Goyone_Resume.pdf
+- Website: https://luisgoyone.com/
+- Resume (PDF): https://luisgoyone.com/Luis_Goyone_Resume.pdf
 - GitHub: https://github.com/luismgoyone
 - LinkedIn: https://www.linkedin.com/in/luisgoyone/

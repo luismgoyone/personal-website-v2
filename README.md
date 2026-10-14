@@ -2,7 +2,7 @@
 
 Personal portfolio of Luis Michael Goyone, a software engineer who builds web products and the AI agent workflows that ship them.
 
-Live at **https://luismgoyone.github.io/personal-website-v2/**
+Live at **https://luisgoyone.com**
 
 ## Stack
 
@@ -24,9 +24,9 @@ Next.js 16 (App Router, static export), TypeScript, Tailwind CSS v4, and markdow
 npm install
 npm run dev      # http://localhost:3000
 npm run lint
-NEXT_PUBLIC_BASE_PATH=/personal-website-v2 npm run build   # static site in ./out
+npm run build    # static site in ./out
 ```
 
 ## Deployment
 
-Every push to `main` (and every published release) triggers `.github/workflows/deploy.yml`, which builds with the `/personal-website-v2` base path and deploys `./out` to GitHub Pages.
+Every push to `main` (and every published release) triggers `.github/workflows/deploy.yml`, which builds the site and deploys `./out` to GitHub Pages. The custom domain `luisgoyone.com` is set in the repo's Pages settings (DNS is on Cloudflare), so the site is served from the root with no base path.
