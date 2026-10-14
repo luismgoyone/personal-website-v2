@@ -16,7 +16,7 @@ export const personalInfo: PersonalInfo = {
   name: "Luis Michael Goyone",
   shortName: "Luis Goyone",
   title: "Software Engineer",
-  tagline: "I build web apps, and the Claude Code agents that help me ship them.",
+  tagline: "I build web apps, and the AI agents that help me ship them.",
   location: "Philippines · Remote",
   bio: "I'm a software engineer with 4+ years of experience designing and building scalable web applications. I specialize in React and TypeScript, and I care deeply about clean code, great user experiences, and collaborative development.\n\nCurrently at 24metrics, where I help protect advertising budgets by converting complex Figma designs into responsive, production-ready interfaces. Part-time, I'm a software engineer at Chief (formerly Storytell), where I run my own Claude Code agent pipeline that takes Linear tickets to review-ready pull requests across web, desktop, and Go backend code. Previously at Booky, where I built features used by millions of users across the Philippines.",
 };
@@ -48,14 +48,15 @@ export const experiences: Experience[] = [
     role: "Software Engineer",
     period: "Mar 2025 – Present",
     summary:
-      "Ad fraud protection platform. I build the front end from Figma designs and led our last site launch.",
+      "Ad fraud protection platform. I build the front end from Figma, led our last site launch, and built Cursor skills that take my Linear tickets to draft PRs.",
     current: true,
     description: [
-      "I bridge the gap between design and production by turning complex Figma layouts into high-performance web interfaces.",
-      "Beyond front-end development and leading our latest site launch, I focus on workflow efficiency, proactively coordinating with backend teams on API specs and streamlining ticket assessments.",
-      "I integrate AI into my research and coding process to move faster, though I personally refactor and vet every suggestion to ensure the output is optimized, secure, and fits our specific team standards.",
+      "Build the React and TypeScript front end from Figma designs, ship some Go API changes, and led our last site launch.",
+      "Built my own Cursor setup: an /execute-ticket skill that reads a Linear ticket with its comments, attachments and Figma links and opens a draft PR with screenshots, and a developer agent whose rules come from real review comments.",
+      "Built a skill that renders documentation screenshots from the real UI with fictional data, so the docs never need a real customer account.",
+      "Use Claude Code as a second reviewer and to test branches in Playwright before review.",
     ],
-    tech: ["React", "TypeScript", "Figma"],
+    tech: ["React", "TypeScript", "Go", "Cursor", "Claude Code", "Figma"],
   },
   {
     company: "Booky",
@@ -252,6 +253,15 @@ export const socialLinks: SocialLink[] = [
 ];
 
 // The agent pipeline shown on the home page, one row per stage.
+// The 24metrics setup: Cursor skills and agent, Claude Code as second reviewer.
+export const cursorPipeline: PipelineStep[] = [
+  { agent: "/execute-ticket", does: "ticket and Figma in, draft PR out", output: "pr" },
+  { agent: "developer", does: "implements, checks types and the browser", output: "diff", depth: 1 },
+  { agent: "claude code", does: "reviews the branch, tests it in Playwright", output: "review" },
+  { agent: ".mdc rules", does: "repeat review notes become rules", output: "rules" },
+  { agent: "luis", does: "scope, review, merge", output: "ship", human: true },
+];
+
 export const pipeline: PipelineStep[] = [
   { agent: "/scope", does: "asks the owner, writes a context brief", output: "brief" },
   {

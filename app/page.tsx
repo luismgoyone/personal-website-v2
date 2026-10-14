@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PipelineTrace } from "@/components/site/PipelineTrace";
+import { PipelineSwitch } from "@/components/site/PipelineSwitch";
 import { Row } from "@/components/site/Row";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -41,27 +41,38 @@ export default function HomePage() {
               , where I merged{" "}
               <strong className="font-semibold text-foreground">149 pull requests in my first three months</strong>, a
               quarter of the team&apos;s human-authored merges, with a Claude Code setup I built. Full-time at 24metrics,
-              where I build the front end from Figma and led our last site launch. Before that, two and a half years at
-              Booky shipping React features used by millions.
+              where I build the front end from Figma and wrote my own Cursor skills that turn a Linear ticket into a
+              draft PR. Before that, two and a half years at Booky shipping React features used by
+              millions.
             </p>
             <p className="leading-relaxed text-body">The agents write most of the code. I read every diff before it ships.</p>
           </Row>
 
           <Row label="How a ticket ships">
-            <figure>
-              <PipelineTrace brief />
-              <figcaption className="mt-2.5 text-sm text-muted">
-                I wrote all of these myself. They run across Chief&apos;s web app, desktop app, shared TypeScript and Go backend.
-                {pipelinePost && (
+            <PipelineSwitch
+              captions={{
+                chief: (
                   <>
-                    {" "}
-                    <Link href={`/writing/${pipelinePost.slug}`} className="link text-foreground">
-                      Read how it works →
-                    </Link>
+                    I wrote all of these myself. They run across Chief&apos;s web app, desktop app, shared TypeScript and
+                    Go backend.
+                    {pipelinePost && (
+                      <>
+                        {" "}
+                        <Link href={`/writing/${pipelinePost.slug}`} className="link text-foreground">
+                          Read how it works →
+                        </Link>
+                      </>
+                    )}
                   </>
-                )}
-              </figcaption>
-            </figure>
+                ),
+                "24metrics": (
+                  <>
+                    Leaner than the Chief setup: one developer agent, and I run tickets in parallel by hand. Built in
+                    Cursor for 24metrics&apos; React front end and Go API.
+                  </>
+                ),
+              }}
+            />
           </Row>
 
           <Row label="Projects" id="projects">
