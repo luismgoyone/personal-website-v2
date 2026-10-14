@@ -41,8 +41,8 @@ export default function HomePage() {
               , where I merged{" "}
               <strong className="font-semibold text-foreground">149 pull requests in my first three months</strong>, a
               quarter of the team&apos;s human-authored merges, with a Claude Code setup I built. Full-time at 24metrics,
-              where I build the front end from Figma and wrote my own Cursor skills that turn a Linear ticket into a
-              draft PR. Before that, two and a half years at Booky shipping React features used by
+              where I went from hand-coding the React front end to shipping front end and Go API changes together with
+              agents, and writing the specs and docs for what I build. Before that, two and a half years at Booky shipping React features used by
               millions.
             </p>
             <p className="leading-relaxed text-body">The agents write most of the code. I read every diff before it ships.</p>

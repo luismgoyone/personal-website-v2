@@ -18,7 +18,7 @@ export const personalInfo: PersonalInfo = {
   title: "Software Engineer",
   tagline: "I build web apps, and the AI agents that help me ship them.",
   location: "Philippines · Remote",
-  bio: "I'm a software engineer with 4+ years of experience designing and building scalable web applications. I specialize in React and TypeScript, and I care deeply about clean code, great user experiences, and collaborative development.\n\nCurrently at 24metrics, where I help protect advertising budgets by converting complex Figma designs into responsive, production-ready interfaces. Part-time, I'm a software engineer at Chief (formerly Storytell), where I run my own Claude Code agent pipeline that takes Linear tickets to review-ready pull requests across web, desktop, and Go backend code. Previously at Booky, where I built features used by millions of users across the Philippines.",
+  bio: "I'm a software engineer with 4+ years of experience designing and building scalable web applications. I specialize in React and TypeScript, and I care deeply about clean code, great user experiences, and collaborative development.\n\nCurrently at 24metrics, where I build the React front end and Go API with AI agents, and write the specs and docs for what I build. Part-time, I'm a software engineer at Chief (formerly Storytell), where I run my own Claude Code agent pipeline that takes Linear tickets to review-ready pull requests across web, desktop, and Go backend code. Previously at Booky, where I built features used by millions of users across the Philippines.",
 };
 
 export const experiences: Experience[] = [
@@ -48,15 +48,17 @@ export const experiences: Experience[] = [
     role: "Software Engineer",
     period: "Mar 2025 – Present",
     summary:
-      "Ad fraud protection platform. I build the front end from Figma, led our last site launch, and built Cursor skills that take my Linear tickets to draft PRs.",
+      "Ad fraud protection platform. Started out hand-coding the front end. Now I build front end and Go back end together with agents, and I write the specs and docs too.",
     current: true,
     description: [
-      "Build the React and TypeScript front end from Figma designs, ship some Go API changes, and led our last site launch.",
-      "Built my own Cursor setup: an /execute-ticket skill that reads a Linear ticket with its comments, attachments and Figma links and opens a draft PR with screenshots, and a developer agent whose rules come from real review comments.",
+      "Hand-coded the React and TypeScript front end from Figma for my first five months, then spent six months building and launching the company's WordPress site with Elementor, WP Rocket and custom PHP snippets.",
+      "Started coding with AI in early 2026, first with Gemini as an assistant, then shipping in Cursor with Claude for review and the harder tasks.",
+      "Learned Go in Q3 2026. Now I ship front end and back end changes together, and agents write most of the code.",
+      "Designed the front end and back end specs for two features and wrote their documentation: retargeting domains and tags for affiliate campaigns, and landing page URL templates per advertiser plus an organization-wide global one.",
+      "Wrote Cursor skills that create Linear tickets and carry them out to a draft PR with screenshots, plus a developer agent whose rules come from real review comments.",
       "Built a skill that renders documentation screenshots from the real UI with fictional data, so the docs never need a real customer account.",
-      "Use Claude Code as a second reviewer and to test branches in Playwright before review.",
     ],
-    tech: ["React", "TypeScript", "Go", "Cursor", "Claude Code", "Figma"],
+    tech: ["React", "TypeScript", "Go", "Cursor", "Claude Code", "Figma", "WordPress"],
   },
   {
     company: "Booky",
