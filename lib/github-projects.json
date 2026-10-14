@@ -1,12 +1,12 @@
 [
   {
-    "title": "Pdf Editor",
+    "title": "Paperweight",
     "description": "Browser-only, privacy-first PDF editor. Files never leave your device.",
     "tech": [
       "TypeScript"
     ],
-    "url": "https://pdf-editor-navy.vercel.app",
-    "repo": "https://github.com/luismgoyone/pdf-editor",
+    "url": "https://paperweight.luisgoyone.com",
+    "repo": "https://github.com/luismgoyone/paperweight",
     "year": 2026,
     "featured": false
   }
