@@ -108,7 +108,7 @@ const manualProjects: Project[] = [
       "A full-stack web application for managing employee overtime records.",
     summary: "Full-stack app for managing employee overtime records.",
     tech: ["React", "TypeScript", "MUI", "Vite", "PostgreSQL", "Node.js", "NestJS", "Docker", "JWT Authentication"],
-    url: "https://ot-management.netlify.app/",
+    url: "https://ot.luisgoyone.com",
     repo: "https://github.com/luismgoyone/ot-tracker",
     year: 2026,
     featured: true,
