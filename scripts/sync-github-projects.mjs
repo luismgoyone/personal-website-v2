@@ -75,7 +75,7 @@ async function techFor(repo) {
 }
 
 const manualUrls = new Set(
-  [...readFileSync(DATA_TS, "utf8").matchAll(/url:\s*"([^"]+)"/g)]
+  [...readFileSync(DATA_TS, "utf8").matchAll(/(?:url|repo):\s*"([^"]+)"/g)]
     .map((m) => normalizeUrl(m[1]))
     .filter(Boolean)
 );
