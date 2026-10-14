@@ -51,7 +51,7 @@ export const experiences: Experience[] = [
       "Ad fraud protection platform. I build the front end from Figma, led our last site launch, and built Cursor skills that take my Linear tickets to draft PRs.",
     current: true,
     description: [
-      "Build the React and TypeScript front end from Figma designs and led our last site launch: 266 merged front-end pull requests since March 2025, plus Go API changes.",
+      "Build the React and TypeScript front end from Figma designs, ship some Go API changes, and led our last site launch.",
       "Built my own Cursor setup: an /execute-ticket skill that reads a Linear ticket with its comments, attachments and Figma links and opens a draft PR with screenshots, and a developer agent whose rules come from real review comments.",
       "Built a skill that renders documentation screenshots from the real UI with fictional data, so the docs never need a real customer account.",
       "Use Claude Code as a second reviewer and to test branches in Playwright before review.",
