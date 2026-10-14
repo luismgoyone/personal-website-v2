@@ -29,16 +29,17 @@ export const experiences: Experience[] = [
       "AI meeting assistant that transcribes meetings, summarizes them, and acts on them across tools like Notion, Slack, GitHub, and Linear.",
     role: "Software Engineer (Part-time)",
     summary:
-      "Run my own Claude Code pipeline of agents, commands and skills from Linear ticket to review-ready PR. Every UI change verified in Playwright and recorded.",
+      "Run my own Claude Code pipeline of agents, commands and skills from Linear ticket to review-ready PR. Every UI change verified in Playwright and recorded. Also built the iOS and Android apps.",
     period: "Jun 2026 – Present",
     current: true,
     description: [
       "Merged 149 pull requests in my first three months, 25% of the engineering team's human-authored merges.",
       "Designed and run my own Claude Code pipeline (planner, coder and tester subagents, plus slash commands and skills for scoping, review, browser verification, video proof and review follow-up) that takes Linear tickets to review-ready pull requests across the web app, native desktop app, shared TypeScript libraries, and Go backend.",
       "Every UI change is verified in a real browser with Playwright and recorded as video.",
+      "Built native iOS (SwiftUI) and Android (Jetpack Compose) versions of the desktop app.",
       "Agents draft the code; I own scope, review, and what ships.",
     ],
-    tech: ["Claude Code", "TypeScript", "SolidJS", "Go", "PostgreSQL", "Playwright"],
+    tech: ["Claude Code", "TypeScript", "SolidJS", "Go", "SwiftUI", "Kotlin", "PostgreSQL", "Playwright"],
   },
   {
     company: "24metrics",
