@@ -116,6 +116,7 @@ const manualProjects: Project[] = [
     repo: "https://github.com/luismgoyone/ot-tracker",
     year: 2026,
     featured: true,
+    demo: "ot-tracker",
   },
   {
     title: "Lead Autopilot",
@@ -127,17 +128,19 @@ const manualProjects: Project[] = [
     repo: "https://github.com/luismgoyone/lead-autopilot",
     year: 2026,
     featured: true,
+    demo: "lead-autopilot",
   },
   {
     title: "Notedt",
     description:
-      "A web application for tracking personal budgets, built with React, TypeScript, Tailwind CSS, and Chart.js.",
-    summary: "Budget tracker with Chart.js charts.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+      "A budget tracker that runs entirely in the browser: income and expenses, monthly budgets per category, recurring items, CSV import and export, and offline use as a PWA. No account or backend.",
+    summary: "Budget tracker with monthly budgets and recurring items. No account, works offline.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "PWA"],
     url: "https://notedt.luisgoyone.com",
     repo: "https://github.com/luismgoyone/react-notedt",
     year: 2024,
     featured: true,
+    demo: "notedt",
   },
   {
     title: "ParsePass",
