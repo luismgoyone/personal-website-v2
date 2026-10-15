@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PipelineSwitch } from "@/components/site/PipelineSwitch";
+import { ProjectDemo } from "@/components/site/ProjectDemo";
 import { Row } from "@/components/site/Row";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -91,6 +92,7 @@ export default function HomePage() {
                     </span>
                     <span className="meta shrink-0">{p.year}</span>
                   </a>
+                  {p.demo && <ProjectDemo name={p.demo} label={`${p.title} demo: ${p.summary ?? p.description}`} />}
                 </li>
               ))}
             </ul>

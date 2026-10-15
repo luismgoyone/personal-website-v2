@@ -104,6 +104,7 @@ const manualProjects: Project[] = [
     repo: "https://github.com/luismgoyone/outpost",
     year: 2026,
     featured: true,
+    demo: "outpost",
   },
   {
     title: "OT Tracker",
