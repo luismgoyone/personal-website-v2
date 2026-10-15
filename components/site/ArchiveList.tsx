@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import type { Project } from "@/types/portfolio";
 import { cn } from "@/lib/utils";
@@ -14,7 +15,15 @@ const filters: { id: string; label: string; test: (p: Project) => boolean }[] = 
   { id: "backend", label: "Backend", test: (p) => p.tech.some((t) => /NestJS|Express|PostgreSQL|Node/.test(t)) },
 ];
 
-export function ArchiveList({ projects, intro }: { projects: Project[]; intro: React.ReactNode }) {
+export function ArchiveList({
+  projects,
+  pages,
+  intro,
+}: {
+  projects: Project[];
+  pages: Record<string, string>; // project title → its /projects page, when it has one
+  intro: React.ReactNode;
+}) {
   const [active, setActive] = useState("all");
   const test = filters.find((f) => f.id === active)?.test ?? (() => true);
   const shown = projects.filter(test);
@@ -67,7 +76,15 @@ export function ArchiveList({ projects, intro }: { projects: Project[]; intro: R
                 .map((p) => (
                   <li key={p.title} className="border-t border-hairline py-4 first:border-t-0 sm:first:border-t">
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                      <h2 className="font-medium">{p.title}</h2>
+                      <h2 className="font-medium">
+                        {pages[p.title] ? (
+                          <Link href={pages[p.title]} className="transition-colors hover:text-accent">
+                            {p.title} →
+                          </Link>
+                        ) : (
+                          p.title
+                        )}
+                      </h2>
                       <span className="flex gap-4 font-mono text-[13px]">
                         {p.url && p.url !== "#" && !p.url.startsWith("https://github.com/") && (
                           <a href={p.url} target="_blank" rel="noopener noreferrer" className="text-muted transition-colors hover:text-accent" aria-label={`${p.title} site (opens in new tab)`}>
