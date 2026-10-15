@@ -107,6 +107,18 @@ const manualProjects: Project[] = [
     demo: "outpost",
   },
   {
+    title: "Overruns Store",
+    description:
+      "A mobile-first storefront for overrun apparel, built as a client proof of concept: stock per size, PayMongo checkout (GCash, Maya, card), confirmation emails, and an admin for products and orders.",
+    summary: "Mobile-first store for overrun apparel: stock per size, GCash and Maya checkout, and an admin.",
+    tech: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "PayMongo", "Resend", "Tailwind CSS", "Vercel"],
+    url: "https://shop.luisgoyone.com",
+    repo: "https://github.com/luismgoyone/overruns-store",
+    year: 2026,
+    featured: true,
+    demo: "overruns-store",
+  },
+  {
     title: "OT Tracker",
     description:
       "A full-stack web application for managing employee overtime records.",
@@ -139,7 +151,7 @@ const manualProjects: Project[] = [
     url: "https://notedt.luisgoyone.com",
     repo: "https://github.com/luismgoyone/react-notedt",
     year: 2024,
-    featured: true,
+    featured: false,
     demo: "notedt",
   },
   {
