@@ -1,5 +1,26 @@
 [
   {
+    "title": "Overruns Store",
+    "description": "Mobile-first storefront for an overrun-apparel brand. Sizes and stock, PayMongo checkout (GCash, Maya, cards), signed webhooks, order emails and an owner admin. Next.js 16, Supabase, Vercel.",
+    "tech": [
+      "ecommerce",
+      "nextjs",
+      "paymongo",
+      "philippines",
+      "postgresql",
+      "react",
+      "resend",
+      "supabase",
+      "tailwindcss",
+      "typescript",
+      "vercel"
+    ],
+    "url": "https://shop.luisgoyone.com",
+    "repo": "https://github.com/luismgoyone/overruns-store",
+    "year": 2026,
+    "featured": false
+  },
+  {
     "title": "Paperweight",
     "description": "Browser-only, privacy-first PDF editor. Files never leave your device.",
     "tech": [
