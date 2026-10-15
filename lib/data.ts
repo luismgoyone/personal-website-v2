@@ -99,7 +99,7 @@ const manualProjects: Project[] = [
     description:
       "A personal engineering control center that brings PRs, CI, deployments and releases across all your GitHub repos into one dense dashboard.",
     summary: "PRs, CI, deployments and releases across all your GitHub repos in one dense dashboard.",
-    tech: ["Next.js", "TypeScript", "GitHub API", "GitHub Apps", "Vercel"],
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "GitHub API", "GitHub Apps", "Vercel"],
     url: "https://outpost.luisgoyone.com",
     repo: "https://github.com/luismgoyone/outpost",
     year: 2026,

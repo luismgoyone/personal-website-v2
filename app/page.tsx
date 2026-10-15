@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { PipelineSwitch } from "@/components/site/PipelineSwitch";
-import { ProjectDemo } from "@/components/site/ProjectDemo";
 import { Row } from "@/components/site/Row";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { availability, experiences, now, personalInfo, projects, socialLinks, testimonials } from "@/lib/data";
 import { formatDate, getPosts } from "@/lib/posts";
+import { hasProjectPage, projectSlug } from "@/lib/project-pages";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const HOME_PROJECT_LIMIT = 4;
@@ -78,23 +78,31 @@ export default function HomePage() {
 
           <Row label="Projects" id="projects">
             <ul>
-              {featuredProjects.map((p) => (
-                <li key={p.title}>
-                  <a
-                    href={p.url ?? p.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex justify-between gap-4 py-2.5"
-                  >
+              {featuredProjects.map((p) => {
+                const row = (
+                  <>
                     <span>
                       <span className="font-medium group-hover:text-accent">{p.title}</span>
                       <span className="text-muted"> · {p.summary ?? p.description}</span>
                     </span>
                     <span className="meta shrink-0">{p.year}</span>
-                  </a>
-                  {p.demo && <ProjectDemo name={p.demo} label={`${p.title} demo: ${p.summary ?? p.description}`} />}
-                </li>
-              ))}
+                  </>
+                );
+                const rowClass = "group flex justify-between gap-4 py-2.5";
+                return (
+                  <li key={p.title}>
+                    {hasProjectPage(p) ? (
+                      <Link href={`/projects/${projectSlug(p)}`} className={rowClass}>
+                        {row}
+                      </Link>
+                    ) : (
+                      <a href={p.url ?? p.repo} target="_blank" rel="noopener noreferrer" className={rowClass}>
+                        {row}
+                      </a>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
             <Link href="/archive" className="mt-2 inline-block text-sm text-muted transition-colors hover:text-foreground">
               Everything else in the archive →

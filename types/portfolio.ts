@@ -19,7 +19,7 @@ export interface Project {
   repo?: string;
   year?: number;
   featured?: boolean;
-  demo?: string; // clip name in public/demos (<name>.mp4 + <name>.jpg), shown on the home page
+  demo?: string; // clip name in public/demos (<name>.mp4 + <name>.jpg), shown on its project page
 }
 
 export interface Skill {
